@@ -2,9 +2,38 @@ html {
     background-color: black;
 }
 
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.content-grid {
+    display: grid;
+
+    grid-column: content;
+    grid-gap: 0.5rem;
+}
+
+.header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+}
+
+@media (min-width: 36em) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* @media (min-width: 56em) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+} */
+
 h1 {
     color: #fff;
-    font-size: 48px;
+    font-size: 2.5rem;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
@@ -13,7 +42,7 @@ h1 {
 
 p {
     color: #fff;
-    font-size: 24px;
+    font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -21,23 +50,41 @@ p {
 
 label {
     color: #fff;
-    font-size: 24px;
+    font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
 
+label:not(.not-block) {
+    display: block;
+}
+
 input {
     color: #000;
-    font-size: 24px;
+    font-size: 1rem;
+    min-width: 1rem;
     /* text-align: center; */
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
 
+input[type=submit] {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=month],
+input[type=email],
+input[type=tel],
+input[type=text] {
+    width: 100%;
+    margin: auto;
+}
+
 legend {
     color: #fff;
-    font-size: 24px;
+    font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -46,7 +93,7 @@ legend {
 input.submit-button {
     background-color: #fff;
     color: #000;
-    font-size: 24px;
+    font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -54,4 +101,13 @@ input.submit-button {
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
+}
+
+
+.custom-textarea {
+    width: 60%;
+    max-width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+    /* margin-bottom: 16px; */
 }
