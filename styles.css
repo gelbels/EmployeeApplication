@@ -1,0 +1,57 @@
+html {
+    background-color: black;
+}
+
+h1 {
+    color: #fff;
+    font-size: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+p {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+label {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+input {
+    color: #000;
+    font-size: 24px;
+    /* text-align: center; */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+legend {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+input.submit-button {
+    background-color: #fff;
+    color: #000;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
