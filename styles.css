@@ -57,6 +57,16 @@ h1 {
     letter-spacing: 5px;
 }
 
+h2 {
+    color: var(--text-color);
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
 p {
     color: var(--text-color);
     font-size: 1rem;
@@ -178,7 +188,7 @@ input.submit-button {
     width: 100%;
 }
 
-.misc-section{
+.misc-section {
     color: #fff;
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
