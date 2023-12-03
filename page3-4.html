@@ -1,32 +1,36 @@
 ﻿<!DOCTYPE html>
+<html lang="en">
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title>References</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNFinished Business Job Application</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <h1>Unfinished Business</h1>
+    <p>Application for Employment</p>
+
     <h1>References</h1>
     <form action="/submit_references" method="post" id="referencesForm">
         <div id="referenceContainer" class="ref-grid">
             <div class="reference-section">
 
-                <label for="reference_name">Name:</label>
-                <input type="text" name="reference_name[]" required>
+                <label for="reference-name">Name:</label>
+                <input type="text" name="reference-name" required>
 
-                <label for="company_name">Company Name:</label>
-                <input type="text" name="company_name[]">
+                <label for="company-name">Company Name:</label>
+                <input type="text" name="company-name">
 
-                <label for="reference_title">Position/Title:</label>
-                <input type="text" name="reference_name[]">
+                <label for="reference-title">Position/Title:</label>
+                <input type="text" name="reference-name">
 
-                <label for="reference_email">Email:</label>
-                <input type="email" name="reference_email[]" required>
+                <label for="reference-email">Email:</label>
+                <input type="email" name="reference-email" required>
 
-                <label for="reference_phone">Phone Number:</label>
-                <input type="tel" name="reference_phone[]" required>
+                <label for="reference-phone">Phone Number:</label>
+                <input type="tel" name="reference-phone" required>
             </div>
         </div>
 
@@ -104,7 +108,7 @@
                 <input type="text" id="graduation_loc" name="graduation_loc[]">
 
                 <label for="education">Highest Level of Education</label>
-                <select id= "education" name="education">
+                <select id="education" name="education">
                     <option value="high-school">High School</option>
                     <option value="associate-degree">Associate Degree</option>
                     <option value="bachelors-degree">Bachelor's Degree</option>
@@ -114,11 +118,12 @@
                 </select>
             </div>
         </div>
-        <center><button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button></center>
+        <button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button>
         <div>
-            <center><input type="textbox" id="certificates" name="certificates" placeholder="List any additional certificates or training here"
-                style="width: 700px; height: 200px; margin: 15px; padding: 15px;"></center>
-        <div>
+            <input type="textbox" id="certificates" name="certificates"
+                placeholder="List any additional certificates or training here"
+                style="width: 700px; height: 200px; margin: 15px; padding: 15px;">
+            <div>
     </form>
 
     <script>
@@ -160,13 +165,17 @@
 
             var educationSection = button.parentNode;
             educationSection.parentNode.removeChild(educationSection);
-            
+
             educationCount--;
         }
     </script>
 
-<button class="prev"><span>Prev </span></button>
-<button class="next"><span>Next </span></button>
-
+    <a class="link-no-style" href="page2.html">
+        <button class="prev">Prev </button>
+    </a>
+    <a class="link-no-style" href="page7.html">
+        <button class="next">Next</button>
+    </a>
 </body>
+
 </html>

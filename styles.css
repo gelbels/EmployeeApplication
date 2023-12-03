@@ -1,10 +1,27 @@
-html {
-    background-color: black;
+/* :root,
+:root.light {
+    --bg-color: #fff;
+    --bg-color-contrast: #000000;
+    --text-color: #123;
+    --text-color-contrast: #fed;
 }
 
-.dark-mode {
-    background-color: black;
-    color: white;
+:root.dark {
+    --bg-color: #121212;
+    --bg-color-contrast: #efefef;
+    --text-color: #45ADFE;
+    --text-color-contrast: #212729;
+} */
+
+:root {
+    --bg-color: #121212;
+    --bg-color-contrast: #efefef;
+    --text-color: #f8e6e1;
+    --text-color-contrast: #212729;
+}
+
+html {
+    background-color: var(--bg-color);
 }
 
 .content-grid {
@@ -24,14 +41,14 @@ html {
     }
 }
 
-/* @media (min-width: 56em) {
+@media (min-width: 56em) {
     .content-grid {
         grid-template-columns: 1fr 1fr 1fr;
     }
-} */
+}
 
 h1 {
-    color: #fff;
+    color: var(--text-color);
     font-size: 2.5rem;
     text-align: center;
     text-transform: uppercase;
@@ -40,7 +57,7 @@ h1 {
 }
 
 p {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -48,7 +65,7 @@ p {
 }
 
 label {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -60,8 +77,8 @@ label:not(.not-block) {
     display: block;
 }
 
-input{
-    color: #000;
+input {
+    color: var(--text-color-contrast);
     font-size: 1rem;
     min-width: 1rem;
     /* text-align: center; */
@@ -82,7 +99,7 @@ input[type=text] {
 }
 
 legend {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -90,8 +107,8 @@ legend {
 }
 
 input.submit-button {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--bg-color-contrast);
+    color: var(--text-color-contrast);
     font-size: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -113,7 +130,8 @@ input.submit-button {
 
 /* Vanessa's Additions for Employee & Ref Page*/
 
-.ref-grid, #ref-grid {
+.ref-grid,
+#ref-grid {
     display: grid;
     grid-auto-flow: column;
     width: 100%;
@@ -129,25 +147,33 @@ input.submit-button {
 
 }
 
-.education-section { /*javascript*/
+.link-no-style {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.education-section {
+    /*javascript*/
     border: 1px solid #ccc;
     padding: 20px;
     margin: 8px;
     height: auto;
 }
 
-#educationContainer{ /*buttton*/    
+#educationContainer {
+    /*buttton*/
     grid-row-start: 2;
 }
 
-#education{ /*dropdown*/
+#education {
+    /*dropdown*/
     color: #000;
     font-size: 1rem;
     min-width: 1rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    width: 100%;        
+    width: 100%;
 }
 
 #refButton {
@@ -196,34 +222,34 @@ input.submit-button {
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
-  }
-  
-  .next span {
+}
+
+.next span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
-  
-  .next span:after {
+}
+
+.next span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-  }
-  
-  .next:hover span {
+}
+
+.next:hover span {
     padding-right: 25px;
-  }
-  
-  .next:hover span:after {
+}
+
+.next:hover span:after {
     opacity: 1;
     right: 0;
-  }
-  
-  .prev {
+}
+
+.prev {
     border-radius: 4px;
     background-color: cornflowerblue;
     border: none;
@@ -235,30 +261,29 @@ input.submit-button {
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
-  }
-  
-  .prev span {
+}
+
+.prev span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
-  
-  .prev span:after {
+}
+
+.prev span:after {
     content: '\00AB';
     position: absolute;
     opacity: 0;
     top: 0;
     left: -20px;
     transition: 0.5s;
-  }
-  
-  .prev:hover span {
+}
+
+.prev:hover span {
     padding-left: 25px;
-  }
-  
-  .prev:hover span:after {
+}
+
+.prev:hover span:after {
     opacity: 1;
     left: 0;
-  }
-
+}
