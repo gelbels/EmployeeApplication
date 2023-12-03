@@ -10,9 +10,9 @@
 
 <body>
     <h1>Unfinished Business</h1>
-    <p>Application for Employment</p>
+    <h2>Employment Application</h2>
 
-    <h2>References</h2>
+    <h3>References</h3>
     <form action="" method="post" id="referencesForm">
         <div id="referenceContainer" class="ref-grid">
             <div class="reference-section">
@@ -34,148 +34,149 @@
             </div>
         </div>
 
-        <center><button type="button" id="refButton" onclick="addReference()">+ Add Reference</button></center>
+            <center><button type="button" id="refButton" onclick="addReference()">+ Add Reference</button></center>
+
+        <script>
+            let referenceCount = 1;
+
+            function addReference() {
+                const referenceContainer = document.getElementById('referenceContainer');
+
+                if (referenceCount < 4) {
+                    const newReferenceSection = document.createElement('div');
+                    newReferenceSection.classList.add('reference-section');
+
+                    const referenceFields = ['Name', 'Company Name', 'Position/Title', 'Email', 'Phone',];
+
+                    referenceFields.forEach(field => {
+                        const label = document.createElement('label');
+                        label.textContent = `${field}:`;
+                        newReferenceSection.appendChild(label);
+
+                        const input = document.createElement('input');
+                        input.type = field.toLowerCase().includes('email') ? 'email' : 'text';
+                        input.name = field.toLowerCase().replace(/\s+/g, '_') + '[]';
+                        input.required = true;
+                        newReferenceSection.appendChild(input);
+
+                        newReferenceSection.appendChild(document.createElement('br'));
+                    });
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.type = 'button';
+                    deleteButton.classList.add('delete-button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = function () {
+                        deleteReference(newReferenceSection);
+                    };
+
+                    newReferenceSection.appendChild(deleteButton);
+                    referenceContainer.appendChild(newReferenceSection);
+
+                    referenceCount++;
+
+                } else {
+                    alert("Max Number of References Reached");
+                }
+            }
+
+            function deleteReference(referenceSection) {
+                const referenceContainer = document.getElementById('referenceContainer');
+                referenceContainer.removeChild(referenceSection);
+
+                referenceCount--;
+            }
+        </script>
+
+        <hr class="divider">
+
+            <h3>Education</h3>
+                <div id="educationContainer" class="ref-grid">
+                    <div class="education-section">
+                        <label for="institution">Institution Name:</label>
+                        <input type="text" id="institution" name="institution[]" required>
+
+                        <label for="degree">Degree Obtained:</label>
+                        <input type="text" id="degree" name="degree[]" required>
+
+                        <label for="graduation_year">Graduation Year:</label>
+                        <input type="text" id="graduation_year" name="graduation_year[]" required>
+
+                        <label for="graduation_loc">City, State:</label>
+                        <input type="text" id="graduation_loc" name="graduation_loc[]">
+
+                        <label for="education">Highest Level of Education</label>
+                        <select id="education" name="education">
+                            <option value="high-school">High School</option>
+                            <option value="associate-degree">Associate Degree</option>
+                            <option value="bachelors-degree">Bachelor's Degree</option>
+                            <option value="masters-degree">Master's Degree</option>
+                            <option value="doctorate">Doctorate</option>
+                            <option value="doctorate">Other/Certificate</option>
+                        </select>
+                    </div>
+                </div>
+                
+                    <center><button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button></center>
+                
+                <div>
+                    <textarea name="certificates" style="width: 70%; height: 200px; margin: 15px; padding: 15px;" 
+                        placeholder="List any additional certificates or training here"></textarea>
+                <div>
+
+                <script>
+                    var educationCount = 1;
+
+                    function addEducationSection() {
+                        if (educationCount < 4) {
+                            educationCount++;
+
+                            var educationSections = document.getElementById('educationContainer');
+
+                            var newEducationSection = document.createElement('div');
+                            newEducationSection.classList.add('education-section');
+
+                            newEducationSection.innerHTML = `
+                                            <label for="institution${educationCount}">Institution Name:</label>
+                                            <input type="text" name="institution${educationCount}" required>
+
+                                            <label for="degree${educationCount}">Degree Obtained:</label>
+                                            <input type="text" name="degree${educationCount}" required>
+
+                                            <label for="graduation_year${educationCount}">Graduation Year:</label>
+                                            <input type="text" name="graduation_year${educationCount}" required>
+
+                                            <label for="graduation_loc${educationCount}">City, State:</label>
+                                            <input type="text" name="graduation_loc${educationCount}" required>
+
+                                            <button type="button" class="delete-button" onclick="deleteEducationSection(this)">Delete</button>
+                                        `;
+
+                            educationSections.appendChild(newEducationSection);
+                            newEducationSection.appendChild(deleteEducationSection);
+                        } else {
+                            alert('Maximum education sections limit reached (4 sections).');
+                        }
+                    }
+
+                    function deleteEducationSection(button) {
+
+                        var educationSection = button.parentNode;
+                        educationSection.parentNode.removeChild(educationSection);
+
+                        educationCount--;
+                    }
+                </script>
+
+        <button class="prev">
+            <span><a class="link-no-style" href="page2.html">Prev</a></span>
+        </button>
+        <button class="next">
+            <span> <a class="link-no-style" href="page7.html">Next</a></span>
+        </button>
+
     </form>
 
-    <script>
-        let referenceCount = 1;
-
-        function addReference() {
-            const referenceContainer = document.getElementById('referenceContainer');
-
-            if (referenceCount < 4) {
-                const newReferenceSection = document.createElement('div');
-                newReferenceSection.classList.add('reference-section');
-
-                const referenceFields = ['Name', 'Company Name', 'Position/Title', 'Email', 'Phone',];
-
-                referenceFields.forEach(field => {
-                    const label = document.createElement('label');
-                    label.textContent = `${field}:`;
-                    newReferenceSection.appendChild(label);
-
-                    const input = document.createElement('input');
-                    input.type = field.toLowerCase().includes('email') ? 'email' : 'text';
-                    input.name = field.toLowerCase().replace(/\s+/g, '_') + '[]';
-                    input.required = true;
-                    newReferenceSection.appendChild(input);
-
-                    newReferenceSection.appendChild(document.createElement('br'));
-                });
-
-                const deleteButton = document.createElement('button');
-                deleteButton.type = 'button';
-                deleteButton.classList.add('delete-button');
-                deleteButton.textContent = 'Delete';
-                deleteButton.onclick = function () {
-                    deleteReference(newReferenceSection);
-                };
-
-                newReferenceSection.appendChild(deleteButton);
-                referenceContainer.appendChild(newReferenceSection);
-
-                referenceCount++;
-
-            } else {
-                alert("Max Number of References Reached");
-            }
-        }
-
-        function deleteReference(referenceSection) {
-            const referenceContainer = document.getElementById('referenceContainer');
-            referenceContainer.removeChild(referenceSection);
-
-            referenceCount--;
-        }
-    </script>
-
-    <hr class="divider">
-
-    <h2>Education</h2>
-    <form action="" method="post" id="educationForm">
-        <div id="educationContainer" class="ref-grid">
-            <div class="education-section">
-                <label for="institution">Institution Name:</label>
-                <input type="text" id="institution" name="institution[]" required>
-
-                <label for="degree">Degree Obtained:</label>
-                <input type="text" id="degree" name="degree[]" required>
-
-                <label for="graduation_year">Graduation Year:</label>
-                <input type="text" id="graduation_year" name="graduation_year[]" required>
-
-                <label for="graduation_loc">City, State:</label>
-                <input type="text" id="graduation_loc" name="graduation_loc[]">
-
-                <label for="education">Highest Level of Education</label>
-                <select id="education" name="education">
-                    <option value="high-school">High School</option>
-                    <option value="associate-degree">Associate Degree</option>
-                    <option value="bachelors-degree">Bachelor's Degree</option>
-                    <option value="masters-degree">Master's Degree</option>
-                    <option value="doctorate">Doctorate</option>
-                    <option value="doctorate">Other/Certificate</option>
-                </select>
-            </div>
-        </div>
-        <button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button>
-        <div>
-            <input type="textbox" id="certificates" name="certificates"
-                placeholder="List any additional certificates or training here"
-                style="width: 700px; height: 200px; margin: 15px; padding: 15px;">
-            <div>
-    </form>
-
-    <script>
-        var educationCount = 1;
-
-        function addEducationSection() {
-            if (educationCount < 4) {
-                educationCount++;
-
-                var educationSections = document.getElementById('educationContainer');
-
-                var newEducationSection = document.createElement('div');
-                newEducationSection.classList.add('education-section');
-
-                newEducationSection.innerHTML = `
-                                <label for="institution${educationCount}">Institution Name:</label>
-                                <input type="text" name="institution${educationCount}" required>
-
-                                <label for="degree${educationCount}">Degree Obtained:</label>
-                                <input type="text" name="degree${educationCount}" required>
-
-                                <label for="graduation_year${educationCount}">Graduation Year:</label>
-                                <input type="text" name="graduation_year${educationCount}" required>
-
-                                <label for="graduation_loc${educationCount}">City, State:</label>
-                                <input type="text" name="graduation_loc${educationCount}" required>
-
-                                <button type="button" class="delete-button" onclick="deleteEducationSection(this)">Delete</button>
-                            `;
-
-                educationSections.appendChild(newEducationSection);
-                newEducationSection.appendChild(deleteEducationSection);
-            } else {
-                alert('Maximum education sections limit reached (4 sections).');
-            }
-        }
-
-        function deleteEducationSection(button) {
-
-            var educationSection = button.parentNode;
-            educationSection.parentNode.removeChild(educationSection);
-
-            educationCount--;
-        }
-    </script>
-
-    <a class="link-no-style" href="page2.html">
-        <button class="prev">Prev </button>
-    </a>
-    <a class="link-no-style" href="page7.html">
-        <button class="next">Next</button>
-    </a>
+    
 </body>
-
 </html>
