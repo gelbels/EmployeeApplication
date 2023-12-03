@@ -37,6 +37,7 @@ h1 {
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
+    letter-spacing: 5px;
 }
 
 p {
@@ -75,6 +76,7 @@ input[type=submit] {
 }
 
 input[type=month],
+input[type=number],
 input[type=email],
 input[type=tel],
 input[type=text] {
@@ -150,6 +152,14 @@ input.submit-button {
     width: 100%;        
 }
 
+.misc-section{
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
 #refButton {
     background-color: green;
     color: white;
@@ -180,8 +190,9 @@ input.submit-button {
 }
 
 .divider {
-    border: 4px dotted white;
-    margin: 10px;
+    border: 2px dashed white;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .next {
