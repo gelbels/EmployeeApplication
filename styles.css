@@ -9,7 +9,6 @@ html {
 
 .content-grid {
     display: grid;
-
     grid-column: content;
     grid-gap: 0.5rem;
 }
@@ -54,13 +53,14 @@ label {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    margin: 5px;
 }
 
 label:not(.not-block) {
     display: block;
 }
 
-input {
+input{
     color: #000;
     font-size: 1rem;
     min-width: 1rem;
@@ -79,7 +79,6 @@ input[type=email],
 input[type=tel],
 input[type=text] {
     width: 100%;
-    margin: auto;
 }
 
 legend {
@@ -111,3 +110,155 @@ input.submit-button {
     box-sizing: border-box;
     /* margin-bottom: 16px; */
 }
+
+/* Vanessa's Additions for Employee & Ref Page*/
+
+.ref-grid, #ref-grid {
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    grid-gap: 0.5rem;
+}
+
+.reference-section {
+    border: 4px solid white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 8px;
+    height: auto;
+
+}
+
+.education-section { /*javascript*/
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 8px;
+    height: auto;
+}
+
+#educationContainer{ /*buttton*/    
+    grid-row-start: 2;
+}
+
+#education{ /*dropdown*/
+    color: #000;
+    font-size: 1rem;
+    min-width: 1rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    width: 100%;        
+}
+
+#refButton {
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#refButton:hover {
+    background-color: olive;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+.divider {
+    border: 4px dotted white;
+    margin: 10px;
+}
+
+.next {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .next span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .next span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .next:hover span {
+    padding-right: 25px;
+  }
+  
+  .next:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  
+  .prev {
+    border-radius: 4px;
+    background-color: cornflowerblue;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .prev span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .prev span:after {
+    content: '\00AB';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+  }
+  
+  .prev:hover span {
+    padding-left: 25px;
+  }
+  
+  .prev:hover span:after {
+    opacity: 1;
+    left: 0;
+  }
+
