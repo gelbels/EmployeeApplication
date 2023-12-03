@@ -308,3 +308,17 @@ input.submit-button {
     opacity: 1;
     left: 0;
 }
+
+.contact-grid{
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    grid-gap: 0.5rem;
+}
+
+.contact-grid{
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    grid-gap: 0.5rem;
+}

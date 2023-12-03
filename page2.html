@@ -82,7 +82,7 @@
     <form action="nextStep.js" method="post">
         <h2>Work History</h2>
 
-        <div class="content-grid form-section">
+        <div id="form-container" class="contact-grid form-section">
             <fieldset>
                 <legend>Contact Information</legend>
 
@@ -101,6 +101,50 @@
                 <label for="email">Email Address:</label>
                 <input type="text" name="email[]" placeholder="Ex: example@email.com" required>
             </fieldset>
+        </div>
+            
+        <center><button type="button" id="refButton" onclick="addContact()">+ Add Contact</button></center>
+
+            <script>
+                let contactCount = 1;
+
+                function addContact() {
+                    
+
+                    if(contactCount < 4){
+                        var formContainer = document.getElementById('form-container');
+                        var newContact = formContainer.firstElementChild.cloneNode(true);
+                        
+                        formContainer.appendChild(newContact);
+
+                        const deleteButton = document.createElement('button');
+                        deleteButton.type = 'button';
+                        deleteButton.classList.add('delete-button');
+                        deleteButton.textContent = 'Delete';
+                        deleteButton.onclick = function () {
+                            removeContact(newContact);
+                        };
+
+                        newContact.appendChild(deleteButton);
+                        formContainer.appendChild(newContact);
+
+                        contactCount++;
+
+                    }else{
+                        alert("A maximum amount of contact information fulfilled.")
+                    }
+                }
+            
+                function removeContact(newContact) {
+                    const formContainer = document.getElementById('form-container');
+                    formContainer.removeChild(newContact);
+
+                    contactCount--;
+                    
+                }
+            </script>
+
+
 
             <fieldset>
                 <legend>Employment Information</legend>
