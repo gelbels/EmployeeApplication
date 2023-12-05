@@ -12,10 +12,10 @@
     <h1>Unfinished Business</h1>
     <h2>Employment Application</h2>
 
-    <h3>References</h3>
     <form action="" method="post" id="referencesForm">
         <div id="referenceContainer" class="ref-grid">
-            <div class="reference-section">
+            <fieldset>
+                <legend>References</legend>
 
                 <label for="reference-name">Name:</label>
                 <input type="text" name="reference-name" required>
@@ -31,82 +31,77 @@
 
                 <label for="reference-phone">Phone Number:</label>
                 <input type="tel" name="reference-phone" required>
-            </div>
         </div>
 
-            <center><button type="button" id="refButton" onclick="addReference()">+ Add Reference</button></center>
+            <button type="button" id="refButton" onclick="addReference()">+ Add Reference</button>
 
-        <script>
-            let referenceCount = 1;
+            <script>
+                let refCount = 1;
 
-            function addReference() {
-                const referenceContainer = document.getElementById('referenceContainer');
+                function addReference() {
+                    
 
-                if (referenceCount < 4) {
-                    const newReferenceSection = document.createElement('div');
-                    newReferenceSection.classList.add('reference-section');
+                    if(refCount < 4){
+                        var formContainer = document.getElementById('referenceContainer');
+                        var newContact = formContainer.firstElementChild.cloneNode(true);
+                        
+                        formContainer.appendChild(newContact);
 
-                    const referenceFields = ['Name', 'Company Name', 'Position/Title', 'Email', 'Phone',];
+                        const deleteButton = document.createElement('button');
+                        deleteButton.type = 'button';
+                        deleteButton.classList.add('delete-button');
+                        deleteButton.textContent = 'Delete';
+                        deleteButton.onclick = function () {
+                            removeContact(newContact);
+                        };
 
-                    referenceFields.forEach(field => {
-                        const label = document.createElement('label');
-                        label.textContent = `${field}:`;
-                        newReferenceSection.appendChild(label);
+                        newContact.appendChild(deleteButton);
+                        formContainer.appendChild(newContact);
 
-                        const input = document.createElement('input');
-                        input.type = field.toLowerCase().includes('email') ? 'email' : 'text';
-                        input.name = field.toLowerCase().replace(/\s+/g, '_') + '[]';
-                        input.required = true;
-                        newReferenceSection.appendChild(input);
+                        refCount++;
 
-                        newReferenceSection.appendChild(document.createElement('br'));
-                    });
-
-                    const deleteButton = document.createElement('button');
-                    deleteButton.type = 'button';
-                    deleteButton.classList.add('delete-button');
-                    deleteButton.textContent = 'Delete';
-                    deleteButton.onclick = function () {
-                        deleteReference(newReferenceSection);
-                    };
-
-                    newReferenceSection.appendChild(deleteButton);
-                    referenceContainer.appendChild(newReferenceSection);
-
-                    referenceCount++;
-
-                } else {
-                    alert("Max Number of References Reached");
+                    }else{
+                        alert("Max Requested References Reached")
+                    }
                 }
-            }
+            
+                function removeContact(newContact) {
+                    const formContainer = document.getElementById('form-container');
+                    formContainer.removeChild(newContact);
 
-            function deleteReference(referenceSection) {
-                const referenceContainer = document.getElementById('referenceContainer');
-                referenceContainer.removeChild(referenceSection);
+                    refCount--;
 
-                referenceCount--;
-            }
-        </script>
+                }
+            </script>
 
         <hr class="divider">
 
-            <h3>Education</h3>
                 <div id="educationContainer" class="ref-grid">
-                    <div class="education-section">
-                        <label for="institution">Institution Name:</label>
-                        <input type="text" id="institution" name="institution[]" required>
+                        <fieldset>
+                            <legend>Education</legend>
 
-                        <label for="degree">Degree Obtained:</label>
-                        <input type="text" id="degree" name="degree[]" required>
+                                <label for="institution">Institution Name:</label>
+                                <input type="text" id="institution" name="institution[]" required>
 
-                        <label for="graduation_year">Graduation Year:</label>
-                        <input type="text" id="graduation_year" name="graduation_year[]" required>
+                                <label for="degree">Degree Obtained:</label>
+                                <input type="text" id="degree" name="degree[]" required>
 
-                        <label for="graduation_loc">City, State:</label>
-                        <input type="text" id="graduation_loc" name="graduation_loc[]">
+                                <label for="graduation_year">Graduation Year:</label>
+                                <input type="text" id="graduation_year" name="graduation_year[]" required>
 
+                                <label for="graduation_loc">City, State:</label>
+                                <input type="text" id="graduation_loc" name="graduation_loc[]">
+                        </fieldset>
+                </div>
+                
+                <button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button>
+                
+                <fieldset class="ref-grid">
+                    <legend>Education</legend>
+                    <div>
                         <label for="education">Highest Level of Education</label>
-                        <select id="education" name="education">
+                        <select id="education" name="education" style="width: inherit; display: block; margin: 0 auto;">
+                            <option value="high-school" disabled></option>
                             <option value="high-school">High School</option>
                             <option value="associate-degree">Associate Degree</option>
                             <option value="bachelors-degree">Bachelor's Degree</option>
@@ -115,58 +110,49 @@
                             <option value="doctorate">Other/Certificate</option>
                         </select>
                     </div>
-                </div>
-                
-                    <center><button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button></center>
-                
-                <div>
-                    <textarea name="certificates" style="width: 70%; height: 200px; margin: 15px; padding: 15px;" 
-                        placeholder="List any additional certificates or training here"></textarea>
-                <div>
+                    <div>
+                        <textarea name="certificates" placeholder="List any additional certificates or training here" style="display: block; margin-left: auto; margin-right: auto; width: 50%;"></textarea>
+                    </div>
+                </fieldset>
 
-                <script>
-                    var educationCount = 1;
+                    <script>
+                        let eCount = 1;
+        
+                        function addEducationSection() {
+                            
 
-                    function addEducationSection() {
-                        if (educationCount < 4) {
-                            educationCount++;
-
-                            var educationSections = document.getElementById('educationContainer');
-
-                            var newEducationSection = document.createElement('div');
-                            newEducationSection.classList.add('education-section');
-
-                            newEducationSection.innerHTML = `
-                                            <label for="institution${educationCount}">Institution Name:</label>
-                                            <input type="text" name="institution${educationCount}" required>
-
-                                            <label for="degree${educationCount}">Degree Obtained:</label>
-                                            <input type="text" name="degree${educationCount}" required>
-
-                                            <label for="graduation_year${educationCount}">Graduation Year:</label>
-                                            <input type="text" name="graduation_year${educationCount}" required>
-
-                                            <label for="graduation_loc${educationCount}">City, State:</label>
-                                            <input type="text" name="graduation_loc${educationCount}" required>
-
-                                            <button type="button" class="delete-button" onclick="deleteEducationSection(this)">Delete</button>
-                                        `;
-
-                            educationSections.appendChild(newEducationSection);
-                            newEducationSection.appendChild(deleteEducationSection);
-                        } else {
-                            alert('Maximum education sections limit reached (4 sections).');
+                            if(eCount < 4){
+                                var formContainer = document.getElementById('educationContainer');
+                                var newContact = formContainer.firstElementChild.cloneNode(true);
+                                
+                                formContainer.appendChild(newContact);
+        
+                                const deleteButton = document.createElement('button');
+                                deleteButton.type = 'button';
+                                deleteButton.classList.add('delete-button');
+                                deleteButton.textContent = 'Delete';
+                                deleteButton.onclick = function () {
+                                    removeContact(newContact);
+                                };
+        
+                                newContact.appendChild(deleteButton);
+                                formContainer.appendChild(newContact);
+        
+                                eCount++;
+        
+                            }else{
+                                alert("Max Education Requirement Request Reached")
+                            }
                         }
-                    }
-
-                    function deleteEducationSection(button) {
-
-                        var educationSection = button.parentNode;
-                        educationSection.parentNode.removeChild(educationSection);
-
-                        educationCount--;
-                    }
-                </script>
+                    
+                        function removeContact(newContact) {
+                            const formContainer = document.getElementById('form-container');
+                            formContainer.removeChild(newContact);
+        
+                            eCount--;
+        
+                        }
+                    </script>
 
         <button class="prev">
             <span><a class="link-no-style" href="page2.html">Prev</a></span>
@@ -174,6 +160,7 @@
         <button class="next">
             <span> <a class="link-no-style" href="page7.html">Next</a></span>
         </button>
+
 
     </form>
 
