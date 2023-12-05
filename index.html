@@ -68,10 +68,15 @@
             <label for="position">Position Applied For</label>
             <input type="text" id="position" name="employment" pattern="[A-Za-z\s]+" value="" required>
 
-            <input type="radio" id="full-time" name="employment" value="full-time" required>
-            <label class="not-block" for="full-time">Full Time</label>
-            <input type="radio" id="part-time" name="employment" value="part-time" required>
-            <label class="not-block" for="part-time">Part Time</label>
+            <div>
+                <label for="eType">Please Select Preferred Employment Type</label>
+                <select id="eType" name="eType" style="width: 82%; display: block; margin: 0 auto;">
+                    <option value="" selected></option>
+                    <option value="FT">Full-Time</option>
+                    <option value="PT">Part-Time</option>
+                    <option value="seasonal">Seasonal</option>
+                </select>
+            </div>
 
             <label for="date-for-work">Date Available for Work</label>
             <input type="date" id="date-for-work" required>
