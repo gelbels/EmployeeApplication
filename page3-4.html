@@ -75,6 +75,26 @@
             </script>
 
         <hr class="divider">
+        
+                <fieldset class="ref-grid">
+                    <legend>Education</legend>
+                    <div>
+                        <label for="education">Highest Level of Education</label>
+                        <select id="education" name="education" style="width: 70%; display: block; margin: 0 auto;">
+                            <option value="" selected></option>
+                            <option value="high-school">High School</option>
+                            <option value="associate-degree">Associate Degree</option>
+                            <option value="bachelors-degree">Bachelor's Degree</option>
+                            <option value="masters-degree">Master's Degree</option>
+                            <option value="doctorate">Doctorate</option>
+                            <option value="doctorate">Other/Certificate</option>
+                        </select>
+                    </div>
+                    <div>
+                        <textarea name="certificates" placeholder="List any additional certificates or training here" style="display: block; margin-left: auto; margin-right: auto; width: 85%;"></textarea>
+                    </div>
+                </fieldset>
+
 
                 <div id="educationContainer" class="ref-grid">
                         <fieldset>
@@ -96,24 +116,7 @@
                 
                 <button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button>
                 
-                <fieldset class="ref-grid">
-                    <legend>Education</legend>
-                    <div>
-                        <label for="education">Highest Level of Education</label>
-                        <select id="education" name="education" style="width: inherit; display: block; margin: 0 auto;">
-                            <option value="high-school" disabled></option>
-                            <option value="high-school">High School</option>
-                            <option value="associate-degree">Associate Degree</option>
-                            <option value="bachelors-degree">Bachelor's Degree</option>
-                            <option value="masters-degree">Master's Degree</option>
-                            <option value="doctorate">Doctorate</option>
-                            <option value="doctorate">Other/Certificate</option>
-                        </select>
-                    </div>
-                    <div>
-                        <textarea name="certificates" placeholder="List any additional certificates or training here" style="display: block; margin-left: auto; margin-right: auto; width: 50%;"></textarea>
-                    </div>
-                </fieldset>
+
 
                     <script>
                         let eCount = 1;
@@ -153,6 +156,30 @@
         
                         }
                     </script>
+
+<hr class="divider">
+
+                    <fieldset class="ref-grid">
+                        <legend>Miscellaneous</legend>
+                        <div>
+                            <label for="education">Are you willing to use your personal vehicle for your job duties?</label>
+                            <select id="education" name="education" style="width: 70%; display: block; margin: 0 auto;">
+                                <option value="" selected></option>
+                                <option value="high-school">Yes</option>
+                                <option value="associate-degree">No</option>
+                                <option value="bachelors-degree">Prefer not to answer</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="education">Have you previously served in the armed forces?</label>
+                            <select id="education" name="education" style="width: 70%; display: block; margin: 0 auto;">
+                                <option value="" selected></option>
+                                <option value="high-school">Yes</option>
+                                <option value="associate-degree">No</option>
+                                <option value="bachelors-degree">Prefer not to answer</option>
+                            </select>
+                        </div>
+                    </fieldset>
 
         <button class="prev">
             <span><a class="link-no-style" href="page2.html">Prev</a></span>
