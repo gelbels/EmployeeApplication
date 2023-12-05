@@ -1,0 +1,213 @@
+@import url("reset.css");
+
+/* :root,
+:root.light {
+    --bg-color: #fff;
+    --bg-color-contrast: #000000;
+    --text-color: #123;
+    --text-color-contrast: #fed;
+}
+
+:root.dark {
+    --bg-color: #121212;
+    --bg-color-contrast: #efefef;
+    --text-color: #45ADFE;
+    --text-color-contrast: #212729;
+} */
+
+:root {
+    --bg-color: #121212;
+    --bg-color-brighter: #1f1f1f;
+    --bg-color-accent: #ac5730;
+    --bg-color-contrast: #efefef;
+    --text-color: #f8e6e1;
+    --text-color-contrast: #212729;
+}
+
+/* html {
+    background-color: var(--bg-color);
+} */
+
+fieldset {
+    background-color: var(--bg-color-brighter);
+}
+
+h1 {
+    margin: 0.5rem;
+
+    /* color: var(--text-color); */
+
+    font-family: Georgia;
+    font-size: 3rem;
+    letter-spacing: rem;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin: 0.5rem;
+
+    /* color: var(--text-color); */
+
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h3 {
+    margin: 0.2rem;
+    width: fit-content;
+
+    background-color: var(--bg-color-brighter);
+    /* color: var(--text-color); */
+
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p {
+    /* color: var(--text-color); */
+    /* text-align: center; */
+}
+
+label {
+    /* color: var(--text-color); */
+    /* text-align: center; */
+}
+
+input {
+    /* color: var(--text-color-contrast); */
+    /* min-width: 1rem; */
+    width: 100%;
+
+    /* font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; */
+
+    /* text-align: center; */
+}
+
+input:invalid {
+    /* background-color: ivory; */
+    /* border: none;
+    outline: 2px solid red;
+    border-radius: 5px; */
+}
+
+input:not(:focus):not(:placeholder-shown):invalid {
+    --color-invalid: red;
+
+    border-color: var(--color-invalid);
+}
+
+input:not(:focus):not(:placeholder-shown):invalid~.error-message {
+    display: block;
+}
+
+
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: min-content
+}
+
+input::placeholder {
+    opacity: 1;
+    /* color: var(--text-color); */
+}
+
+.button {
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    width: fit-content;
+    color: var(--text-color);
+    background-color: var(--bg-color-accent);
+    border-radius: 0.5rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    margin: auto;
+    max-width: 80ch;
+}
+
+.form-fields {
+    --min: 10ch;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.form-fields>* {
+    flex: 1 1 var(--min);
+}
+
+.form-field-group {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 0.5rem; */
+
+    /* margin: 1.25rem 0rem; */
+    margin: 1rem auto;
+    width: 90%;
+}
+
+/* .form-field-group>* :not([type="radio"], [type="checkbox"]) {
+    width: 100%;
+} */
+
+.form-field-buttons>* {
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* flex: 1 1 2ch; */
+    /* margin: 0rem 0.5rem;
+    width: max-content; */
+}
+
+.form-field-group>* {
+    margin: 0.25rem 0rem;
+}
+
+.center {
+    /* display: grid;
+    place-content: center; */
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: column;
+}
+
+/*
+.content-grid {
+    display: grid;
+    grid-column: content;
+    grid-gap: 0.5rem;
+} */
+
+/* .header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+} */
+
+/* @media (min-width: 36em) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 56em) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+} */
