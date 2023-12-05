@@ -104,7 +104,7 @@
                 <input type="text" name="supervisor_name[]" placeholder="Ex: First Last" required>
 
                 <label for="employment_dates_from">Employment Dates - From:</label>
-                <input type="month" name="employment_dates_from[]" required>
+                <input type="month" name="employment_dates_from[]" placeholder="1" required>
 
                 <label for="employment_dates_to">Employment Dates - To:</label>
                 <input type="month" name="employment_dates_to[]" required>
@@ -118,90 +118,95 @@
                 <label for="last_job_title">Your Last Job Title:</label>
                 <input type="text" name="last_job_title[]" placeholder="Ex: Professor" required>
 
-                <label for="contact_employer">May we contact this employer?<input type="checkbox" name="contact_employer[]"></label>
+                <label for="contact_employer">May we contact this employer?<input type="checkbox"
+                        name="contact_employer[]"></label>
 
                 <label for="reason_for_leaving">Reason for Leaving <b>(Be Specific)</b>:</label>
-                <textarea class="custom-textarea" name="reason_for_leaving[]" placeholder="Ex: Pursuing a new opportunity for career growth." rows="6" required></textarea>
+                <textarea class="custom-textarea" name="reason_for_leaving[]"
+                    placeholder="Ex: Pursuing a new opportunity for career growth." rows="6" required></textarea>
 
                 <label for="duties_skills">Duties, Skills, Advancements:</label>
-                <textarea class="custom-textarea" name="duties_skills[]" placeholder="Ex: Managed a team of 10, proficient in project management." rows="6" required></textarea>
+                <textarea class="custom-textarea" name="duties_skills[]"
+                    placeholder="Ex: Managed a team of 10, proficient in project management." rows="6"
+                    required></textarea>
 
             </fieldset>
         </div>
-            
-            <button type="button" id="refButton" onclick="addContact()">+ Additional Work Experience</button>
-        
-            <script>
-                let contactCount = 1;
 
-                function addContact() {
-                    
+        <button type="button" id="refButton" onclick="addContact()">+ Additional Work Experience</button>
 
-                    if(contactCount < 3){
-                        var formContainer = document.getElementById('form-container');
-                        var newContact = formContainer.firstElementChild.cloneNode(true);
-                        
-                        formContainer.appendChild(newContact);
+        <script>
+            let contactCount = 1;
 
-                        const deleteButton = document.createElement('button');
-                        deleteButton.type = 'button';
-                        deleteButton.classList.add('delete-button');
-                        deleteButton.textContent = 'Delete';
-                        deleteButton.onclick = function () {
-                            removeContact(newContact);
-                        };
+            function addContact() {
 
-                        newContact.appendChild(deleteButton);
-                        formContainer.appendChild(newContact);
 
-                        contactCount++;
+                if (contactCount < 3) {
+                    var formContainer = document.getElementById('form-container');
+                    var newContact = formContainer.firstElementChild.cloneNode(true);
 
-                    }else{
-                        alert("A maximum amount of contact information fulfilled.")
-                    }
+                    formContainer.appendChild(newContact);
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.type = 'button';
+                    deleteButton.classList.add('delete-button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = function () {
+                        removeContact(newContact);
+                    };
+
+                    newContact.appendChild(deleteButton);
+                    formContainer.appendChild(newContact);
+
+                    contactCount++;
+
+                } else {
+                    alert("A maximum amount of contact information fulfilled.")
                 }
-            
-                function removeContact(newContact) {
-                    const formContainer = document.getElementById('form-container');
-                    formContainer.removeChild(newContact);
+            }
 
-                    contactCount--;
+            function removeContact(newContact) {
+                const formContainer = document.getElementById('form-container');
+                formContainer.removeChild(newContact);
 
+                contactCount--;
+
+            }
+        </script>
+
+        <script>
+            function addWorkExperience() {
+                // Clone the first work experience section and append it to the form
+                const originalWorkExperience = document.querySelector('.work-experience');
+                const newWorkExperience = originalWorkExperience.cloneNode(true);
+                document.querySelector('form').insertBefore(newWorkExperience, document.querySelector('.work-experience-end'));
+            }
+
+            function validateEmploymentDates() {
+                const startDateInput = document.querySelector('input[name="employment_dates_from[]"]');
+                const endDateInput = document.querySelector('input[name="employment_dates_to[]"]');
+
+                // Check if the end date is not before the start date
+                if (startDateInput.value > endDateInput.value) {
+                    alert("End date cannot be before the start date");
+                    endDateInput.value = startDateInput.value; // Reset end date to start date
                 }
-            </script>
+            }
 
-            <script>
-                function addWorkExperience() {
-                    // Clone the first work experience section and append it to the form
-                    const originalWorkExperience = document.querySelector('.work-experience');
-                    const newWorkExperience = originalWorkExperience.cloneNode(true);
-                    document.querySelector('form').insertBefore(newWorkExperience, document.querySelector('.work-experience-end'));
-                }
+            // Add event listener to the end date input
+            document.querySelector('input[name="employment_dates_to[]"]').addEventListener('input', validateEmploymentDates);
+        </script>
 
-                function validateEmploymentDates() {
-                    const startDateInput = document.querySelector('input[name="employment_dates_from[]"]');
-                    const endDateInput = document.querySelector('input[name="employment_dates_to[]"]');
-
-                    // Check if the end date is not before the start date
-                    if (startDateInput.value > endDateInput.value) {
-                        alert("End date cannot be before the start date");
-                        endDateInput.value = startDateInput.value; // Reset end date to start date
-                    }
-                }
-
-                // Add event listener to the end date input
-                document.querySelector('input[name="employment_dates_to[]"]').addEventListener('input', validateEmploymentDates);
-            </script>
-
-        <button class="prev">
-            <span><a class="link-no-style" href="index.html">Prev</a></span>
-        </button>
-        <button class="next">
-            <span><a class="link-no-style" href="page3-4.html">Next</a></span>
-        </button>
-
-
+        <div class="center">
+            <button class="prev">
+                <span><a class="link-no-style" href="index.html">Prev</a></span>
+            </button>
+            <button class="next">
+                <span><a class="link-no-style" href="page3-4.html">Next</a></span>
+            </button>
+        </div>
     </form>
-    
+
 </body>
+
 </html>

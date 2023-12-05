@@ -12,7 +12,8 @@
     --text-color: #45ADFE;
     --text-color-contrast: #212729;
 } */
-body{
+body {
+    margin: auto;
     width: 95%;
 }
 
@@ -50,6 +51,11 @@ html {
     .content-grid {
         grid-template-columns: 1fr 1fr 1fr;
     }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -91,12 +97,12 @@ legend {
     letter-spacing: 5px;
 }
 
-fieldset{
+fieldset {
     padding-left: 5px;
     padding-right: 5px;
     border: 5px;
     margin-bottom: 30px;
-    border-color: rgb(0, 132, 255);
+    border-color: rgb(64, 137, 206);
     border-style: solid;
     border-radius: 30px;
 }
@@ -144,21 +150,21 @@ input[type=tel],
 input[type=checkbox],
 input[type=date],
 input[type=radio],
-input[type=text]{
+input[type=text] {
     width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15px;
-    
+
 }
 
 textarea {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 300px; 
-    height: 100px; 
+    width: 300px;
+    height: 100px;
 }
 
 legend {
@@ -181,6 +187,36 @@ input.submit-button {
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
+}
+
+.container {
+    margin: auto;
+    width: 90%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Only show invalid ring while not focused */
+input:not(:focus):not(:placeholder-shown):required:invalid {
+    --color-invalid: #e41a1a;
+
+    border-color: var(--color-invalid);
+}
+
+input:not(:focus):not(:placeholder-shown):required:invalid~.error-message {
+    display: block;
+}
+
+/* Only show valid ring while not focused and if a value is entered */
+/* :empty won't work here as that targets elements that have no childeren. Therefore we abuse :placeholder-shown */
+input:not(:focus):not(:placeholder-shown):required:valid {
+    --color-valid: #4089ce;
+
+    border-color: var(--color-valid);
 }
 
 
@@ -365,7 +401,7 @@ input.submit-button {
     left: 0;
 }
 
-.contact-grid{
+.contact-grid {
     display: grid;
     grid-auto-flow: column;
     grid-gap: 0.5rem;
@@ -373,11 +409,9 @@ input.submit-button {
     margin-top: 15px;
 }
 
-.waiver-grid{
+.waiver-grid {
     display: grid;
     grid-auto-flow: row;
     width: 70%;
     align-items: center;
 }
-
-
