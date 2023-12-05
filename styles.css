@@ -89,6 +89,7 @@ label {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     margin: 5px;
+    text-align: center;
 }
 
 label:not(.not-block) {
