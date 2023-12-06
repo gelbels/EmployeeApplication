@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNFinished Business Job Application</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body class="container">
+    <!-- <div class="header">
+        <h1>Unfinished Business</h1>
+        <h2>Employment Application</h2>
+    </div> -->
+
+    <form action="" method="post" class="form-fields">
+        <fieldset>
+            <!-- <div class="center"> -->
+            <h3>Personal Information</h3>
+            <!-- </div> -->
+
+            <div class="form-field-group">
+                <input type="text" id="first-name" name="first-name" placeholder="First Name" pattern="[A-Za-z\s]+"
+                    required>
+                <!-- <label for="first-name">First Name</label> -->
+
+                <input type="text" id="last-name" name="last-name" placeholder="Last Name" pattern="[A-Za-z\s]+"
+                    required>
+                <!-- <label for="last-name">Last Name</label> -->
+
+                <input type="text" id="middle-name" name="middle-name" placeholder="Middle Name" pattern="[A-Za-z\s]+"
+                    required>
+                <!-- <label for="middle-name">Middle</label> -->
+            </div>
+
+            <div class="form-field-group">
+                <!-- <label for="phone">Phone Number</label> -->
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+
+                <!-- <label for="email">Email Address</label> -->
+                <input type="email" id="email" name="email" placeholder="Email Address" required>
+            </div>
+
+
+            <!-- <label for="desired-salary">Desired Salary</label>
+            <input type="text" id="desired-salary" name="desired-salary" pattern="\d+(\.\d{2})?" required> -->
+
+            <div class="form-field-group">
+                <div class="form-field-buttons">
+                    <label for="age">
+                        <input type="checkbox" id="age" name="age" required>
+                        Are you at least 18 years old?
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <h3>Address Information</h3>
+
+            <div class="form-field-group">
+                <!-- <label for="street">Street</label> -->
+                <input type="text" id="street" name="street" placeholder="Street" pattern="[A-Za-z0-9\s]+" required>
+
+                <!-- <label for="city">City</label> -->
+                <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
+
+                <!-- <label for="state">State</label> -->
+                <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
+
+                <!-- <label for="zip">ZIP Code</label> -->
+                <input type="text" id="zip" name="zip" placeholder="ZIP Code" pattern="[0-9]{5}" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <h3>Employment Information</h3>
+
+            <div class="form-field-group">
+                <input type="text" id="position" name="employment" placeholder="Position Applied For"
+                    pattern="[A-Za-z\s]+" value="" required>
+                <!-- <label for="position">Position Applied For</label> -->
+
+                <div class="form-field-buttons">
+                    <label for="full-time">
+                        <input type="radio" id="full-time" name="employment" value="full-time" required>
+                        Full Time
+                    </label>
+
+                    <label for="part-time">
+                        <input type="radio" id="part-time" name="employment" value="part-time" required>
+                        Time
+                    </label>
+                </div>
+
+                <input type="date" id="date-for-work" required>
+                <label for="date-for-work">Date Available for Work</label>
+            </div>
+        </fieldset>
+
+        <!-- <input type="submit" value="Submit" class="submit-button"> -->
+    </form>
+
+    <!-- <div class="footer center">
+        <a class="button" href="page2.html">
+            Next
+        </a>
+    </div> -->
+</body>
+
+</html>
