@@ -1,0 +1,62 @@
+.button {
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    width: fit-content;
+    color: var(--text-color);
+    background-color: var(--bg-color-accent);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+
+    transition: 0.1s ease-out;
+}
+
+.button:hover {
+    padding: 0.5rem 2rem;
+}
+
+.button span {
+    display: block;
+    transition: 0.1s ease-out;
+}
+
+.button.right:hover span {
+    position: relative;
+    transform: translateX(1rem);
+}
+
+.button.left:hover span {
+    position: relative;
+    transform: translateX(-1rem);
+}
+
+.button.right span::before {
+    content: ">>";
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-1.5rem);
+    transition: 0.1s ease-out;
+}
+
+.button.right:hover span::before {
+    content: ">>";
+    position: absolute;
+    transform: translateX(-1.75rem);
+    opacity: 100;
+}
+
+.button.left span::after {
+    content: "<<";
+    position: absolute;
+    opacity: 0;
+    transform: translateX(1.5rem);
+    transition: 0.1s ease-out;
+}
+
+.button.left:hover span::after {
+    content: "<<";
+    position: absolute;
+    transform: translateX(0.25rem);
+    opacity: 100;
+}
