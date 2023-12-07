@@ -14,7 +14,13 @@
         <h2>Employment Application</h2>
     </div>
 
-    <iframe name="pages" src="/page1.html" scrolling="no" frameborder="0"></iframe>
+    <script src="/js/iframeResizer.min.js"></script>
+
+    <iframe id="iframe1" src="/page1.html" name="pages" frameborder="0"></iframe>
+
+    <script>
+        iFrameResize({ log: false }, "#iframe1")
+    </script>
 
     <!-- <div class="footer center">
         <a class="button" href="page2.html">

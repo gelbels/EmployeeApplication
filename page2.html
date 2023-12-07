@@ -6,107 +6,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNFinished Business Job Application</title>
     <link rel="stylesheet" href="styles2.css">
+    <script src="/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 
-<body>
+<body class="container">
     <!-- <h1>Unfinished Business</h1>
     <h2>Employment Application</h2> -->
 
     <form action="nextStep.js" method="post">
 
+        <h3>Work History</h3>
         <div id="form-container">
             <div class="form-fields">
-                <fieldset>
-                    <h3>Work History</h3>
+                <fieldset class="visually-hidden">
                     <div class="form-field-group">
-                        <!-- <label for="employer_name">Employer Name:</label> -->
-                        <input type="text" name="employer_name[]" placeholder="Ex: First Last" required>
+                        <label class="visually-hidden" for="employer_name">Employer Name:</label>
+                        <input type="text" name="employer_name[]" placeholder="Employer Name" required>
 
-                        <!-- <label for="address">Address:</label> -->
-                        <input type="text" name="address[]" placeholder="Ex: 1234 N Street" required>
+                        <label class="visually-hidden" for="address">Address:</label>
+                        <input type="text" name="address[]" placeholder="Address" required>
 
-                        <!-- <label for="city_state_zip">City, State, ZIP:</label> -->
+                        <label class="visually-hidden" for="city_state_zip">City, State, ZIP:</label>
                         <input type="text" name="city_state_zip[]" placeholder="Ex: Jacksonville, Florida, 32256"
                             required>
 
-                        <!-- <label for="telephone">Telephone:</label> -->
+                        <label class="visually-hidden" for="telephone">Telephone:</label>
                         <input type="tel" name="telephone[]" placeholder="Ex: 123-456-7890" required>
 
-                        <!-- <label for="email">Email Address:</label> -->
+                        <label class="visually-hidden" for="email">Email Address:</label>
                         <input type="text" name="email[]" placeholder="Ex: example@email.com" required>
                     </div>
 
 
                     <div class="form-field-group">
-                        <!-- <label for="supervisor_name">Name of Last Supervisor:</label> -->
+                        <label class="visually-hidden" for="supervisor_name">Name of Last Supervisor:</label>
                         <input type="text" name="supervisor_name[]" placeholder="Ex: First Last" required>
 
-                        <!-- <label for="employment_dates_from">Employment Dates - From:</label> -->
+                        <label class="visually-hidden" for="employment_dates_from">Employment Dates - Moneh:</label>
                         <input type="month" name="employment_dates_from[]" required>
 
-                        <!-- <label for="employment_dates_to">Employment Dates - To:</label> -->
+                        <label class="visually-hidden" for="employment_dates_to">Employment Dates - To:</label>
                         <input type="month" name="employment_dates_to[]" required>
 
-                        <!-- <label for="pay_start">Pay or Salary - Start: $</label> -->
+                        <label class="visually-hidden" for="pay_start">Pay or Salary - Start: $</label>
                         <input type="text" name="pay_start[]" placeholder="Ex: 50000" required>
 
-                        <!-- <label for="pay_final">Pay or Salary - Final: $</label> -->
+                        <label class="visually-hidden" for="pay_final">Pay or Salary - Final: $</label>
                         <input type="text" name="pay_final[]" placeholder="Ex: 60000" required>
 
-                        <!-- <label for="last_job_title">Your Last Job Title:</label> -->
+                        <label class="visually-hidden" for="last_job_title">Your Last Job Title:</label>
                         <input type="text" name="last_job_title[]" placeholder="Ex: Professor" required>
 
-                        <!-- <label for="contact_employer">May we contact this employer?<input type="checkbox" -->
-                        name="contact_employer[]"></label>
+                        <label class="visually-hidden" for="contact_employer">May we contact this employer?<input
+                                type="checkbox" name="contact_employer[]"></label>
                     </div>
-
-
-
                 </fieldset>
 
 
                 <fieldset>
-                    <h3>Employment Information</h3>
 
-                    <label for="supervisor_name">Name of Last Supervisor:</label>
-                    <input type="text" name="supervisor_name[]" placeholder="Ex: First Last" required>
+                    <div class="form-field-group">
+                        <h3 name="Field Group Title">Employer 1</h3>
+                        <div class="field-row">
+                            <label class="visually-hidden" for="supervisor_name">Name of Last Supervisor</label>
+                            <input type="text" name="supervisor_name[]" placeholder="Name of Last Supervisor" required>
+                        </div>
 
-                    <label for="employment_dates_from">Employment Dates - From:</label>
-                    <input type="month" name="employment_dates_from[]" required>
+                        <div class="field-row-group">
+                            <label for="employment_dates_from">Employment Dates</label>
+                            <label class="visually-hidden" for="employment_dates_from">From</label>
+                            <input type="date" name="employment_dates_from[]" value="2023-12-05" placeholder="From"
+                                required>
 
-                    <label for="employment_dates_to">Employment Dates - To:</label>
-                    <input type="month" name="employment_dates_to[]" required>
+                            <span>-</span>
 
-                    <div>
-                        <label for="pay_start">Pay or Salary - Start: $</label>
-                        <input type="text" name="pay_start[]" placeholder="Ex: 50000" required>
+                            <label class="visually-hidden" for="employment_dates_to">To:</label>
+                            <input type="date" name="employment_dates_to[]" value="2023-12-01" placeholder="To"
+                                required>
+                        </div>
 
-                        <label for="pay_final">Pay or Salary - Final: $</label>
-                        <input type="text" name="pay_final[]" placeholder="Ex: 60000" required>
+
+                        <div class="field-row-group">
+                            <label for="pay_start">Pay or Salary</label>
+                            <label class="visually-hidden" for="pay_start">Pay or Salary - Start: $</label>
+                            <input type="text" name="pay_start[]" placeholder="Start" required>
+
+                            <span>-</span>
+
+                            <label class="visually-hidden" for="pay_final">Pay or Salary - Final: $</label>
+                            <input type="text" name="pay_final[]" placeholder="Final" required>
+                        </div>
+
+                        <div class="field-row">
+                            <label class="visually-hidden" for="last_job_title">Job Title:</label>
+                            <input type="text" name="last_job_title[]" placeholder="Job Title" required>
+                        </div>
+
+                        <div class="field-row">
+                            <label for="contact_employer">
+                                <input type="checkbox" name="contact_employer[]">
+                                May we contact this employer?<br>
+                            </label>
+                        </div>
                     </div>
 
-                    <label for="last_job_title">Your Last Job Title:</label>
-                    <input type="text" name="last_job_title[]" placeholder="Ex: Professor" required>
+                    <div class="form-field-group">
+                        <div>
+                            <label for="reason_for_leaving">Reason for Leaving <b>(Be Specific)</b>:</label>
+                            <br>
+                            <textarea class="custom-textarea" name="reason_for_leaving[]"
+                                placeholder="Ex: Pursuing a new opportunity for career growth." rows="6"
+                                required></textarea>
+                        </div>
 
-                    <label for="contact_employer">
-                        May we contact this employer?<br>
-                    </label>
-                    <input type="checkbox" name="contact_employer[]">YES
-                </fieldset>
-
-                <fieldset>
-                    <div>
-                        <label for="reason_for_leaving">Reason for Leaving <b>(Be Specific)</b>:</label>
-                        <textarea class="custom-textarea" name="reason_for_leaving[]"
-                            placeholder="Ex: Pursuing a new opportunity for career growth." rows="6"
-                            required></textarea>
-                    </div>
-
-                    <div>
-                        <label for="duties_skills">Duties, Skills, Advancements:</label>
-                        <textarea class="custom-textarea" name="duties_skills[]"
-                            placeholder="Ex: Managed a team of 10, proficient in project management." rows="6" required>
-                            </textarea>
+                        <div>
+                            <label for="duties_skills">Duties, Skills, Advancements:</label>
+                            <br>
+                            <textarea class="custom-textarea" name="duties_skills[]"
+                                placeholder="Ex: Managed a team of 10, proficient in project management." rows="6"
+                                required></textarea>
+                        </div>
                     </div>
                 </fieldset>
             </div>
@@ -128,30 +147,28 @@
 
                 formContainer.appendChild(newContact);
 
+                {
+                    const elements = document.getElementsByName("Field Group Title");
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].textContent = "Employer " + (i + 1);
+                    }
+                }
+
                 const deleteButton = document.createElement('button');
                 deleteButton.type = 'button';
                 deleteButton.classList.add('delete-button');
                 deleteButton.textContent = 'Delete';
                 deleteButton.onclick = function () {
-                    removeContact(newContact);
+                    formContainer.removeChild(deleteButton);
+                    formContainer.removeChild(newContact);
                 };
 
-                newContact.appendChild(deleteButton);
-                formContainer.appendChild(newContact);
+                formContainer.appendChild(deleteButton);
 
                 contactCount++;
-
             } else {
                 alert("A maximum amount of contact information fulfilled.")
             }
-        }
-
-        function removeContact(newContact) {
-            const formContainer = document.getElementById('form-container');
-            formContainer.removeChild(newContact);
-
-            contactCount--;
-
         }
     </script>
 
