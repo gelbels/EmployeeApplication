@@ -19,6 +19,10 @@ h1 {
     text-transform: uppercase;
 }
 
+body {
+    min-height: 0.5dvh;
+}
+
 h2 {
     margin: 0.5rem;
 

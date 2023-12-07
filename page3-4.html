@@ -9,177 +9,186 @@
     <script src="/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 
-<body>
+<body class="container">
     <!-- <h1>Unfinished Business</h1>
     <h2>Employment Application</h2> -->
 
     <form action="" method="post" id="referencesForm">
-        <div id="referenceContainer" class="ref-grid">
+        <div id="reference-container" class="form-fields">
             <fieldset>
-                <legend>References</legend>
+                <h3 name="Reference Group Title">Reference 1</h3>
 
-                <label for="reference-name">Name:</label>
-                <input type="text" name="reference-name" required>
+                <div class="form-field-group">
+                    <label class="visually-hidden" for="reference-name">Name</label>
+                    <input type="text" name="reference-name" placeholder="Name" required>
 
-                <label for="company-name">Company Name:</label>
-                <input type="text" name="company-name">
+                    <label class="visually-hidden" for="company-name">Company Name</label>
+                    <input type="text" name="company-name" placeholder="Company Name">
 
-                <label for="reference-title">Position/Title:</label>
-                <input type="text" name="reference-name">
+                    <label class="visually-hidden" for="reference-title">Position/Title</label>
+                    <input type="text" name="reference-name" placeholder="Position/Title">
 
-                <label for="reference-email">Email:</label>
-                <input type="email" name="reference-email" required>
+                    <label class="visually-hidden" for="reference-phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
 
-                <label for="reference-phone">Phone Number:</label>
-                <input type="tel" name="reference-phone" required>
+                    <label class="visually-hidden" for="reference-email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+            </fieldset>
         </div>
 
         <button type="button" id="refButton" onclick="addReference()">+ Add Reference</button>
 
-        <script>
-            let refCount = 1;
-
-            function addReference() {
-                if (refCount < 4) {
-                    var formContainer = document.getElementById("referenceContainer");
-                    var newContact = formContainer.firstElementChild.cloneNode(true);
-
-                    formContainer.appendChild(newContact);
-
-                    const deleteButton = document.createElement("button");
-                    deleteButton.type = "button";
-                    deleteButton.classList.add("delete-button");
-                    deleteButton.textContent = "Delete";
-                    deleteButton.onclick = function () {
-                        removeReference(newContact);
-                    };
-
-                    newContact.appendChild(deleteButton);
-                    formContainer.appendChild(newContact);
-
-                    refCount++;
-
-                } else {
-                    alert("Max Requested References Reached")
-                }
-            }
-
-            function removeReference(newContact) {
-                const formContainer = document.getElementById("referenceContainer");
-                formContainer.removeChild(newContact);
-
-                refCount--;
-
-            }
-        </script>
-
-        <hr class="divider">
-
-        <fieldset class="ref-grid">
-            <legend>Education</legend>
-            <div>
-                <label for="education">Highest Level of Education</label>
-                <select id="education" name="education" style="width: 70%; display: block; margin: 0 auto;">
-                    <option value="" selected></option>
-                    <option value="high-school">High School</option>
-                    <option value="associate-degree">Associate Degree</option>
-                    <option value="bachelors-degree">Bachelor"s Degree</option>
-                    <option value="masters-degree">Master"s Degree</option>
-                    <option value="doctorate">Doctorate</option>
-                    <option value="doctorate">Other/Certificate</option>
-                </select>
-            </div>
-            <div>
-                <textarea name="certificates" placeholder="List any additional certificates or training here"
-                    style="display: block; margin-left: auto; margin-right: auto; width: 85%;"></textarea>
-            </div>
-        </fieldset>
-
-
-        <div id="educationContainer" class="ref-grid">
+        <div class="form-fields">
             <fieldset>
-                <legend>Education</legend>
+                <div class="form-field-group">
+                    <label for="education">Highest Level of Education</label>
+                    <select id="education" name="education" required>
+                        <option value="" selected></option>
+                        <option value="high-school">High School</option>
+                        <option value="associate-degree">Associate Degree</option>
+                        <option value="bachelors-degree">Bachelor"s Degree</option>
+                        <option value="masters-degree">Master"s Degree</option>
+                        <option value="doctorate">Doctorate</option>
+                        <option value="doctorate">Other/Certificate</option>
+                    </select>
+                </div>
+                <div class="form-field-group">
+                    <textarea name="certificates"
+                        placeholder="List any additional certificates or training here"></textarea>
+                </div>
+            </fieldset>
 
-                <label for="institution">Institution Name:</label>
-                <input type="text" id="institution" name="institution[]" required>
+        </div>
 
-                <label for="degree">Degree Obtained:</label>
-                <input type="text" id="degree" name="degree[]" required>
 
-                <label for="graduation_year">Graduation Year:</label>
-                <input type="text" id="graduation_year" name="graduation_year[]" required>
 
-                <label for="graduation_loc">City, State:</label>
-                <input type="text" id="graduation_loc" name="graduation_loc[]">
+        <div id="education-container" class="form-fields">
+            <fieldset>
+                <h3 name="Education Group Title">Education 1</h3>
+                <div class="form-field-group">
+                    <label class="visually-hidden" for="institution">Institution Name</label>
+                    <input type="text" id="institution" name="institution[]" placeholder="Institution Name" required>
+
+                    <label class="visually-hidden" for="degree">Degree Obtained</label>
+                    <input type="text" id="degree" name="degree[]" placeholder="Degree Obtained" required>
+
+                    <label class="visually-hidden" for="graduation_year">Graduation Year</label>
+                    <input type="text" id="graduation_year" name="graduation_year[]" placeholder="Graduation Year"
+                        required>
+
+                    <label class="visually-hidden" for="graduation_loc">City</label>
+                    <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
+
+                    <label class="visually-hidden" for="graduation_loc">State</label>
+                    <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
+                </div>
             </fieldset>
         </div>
 
         <button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button>
 
+        <fieldset class="ref-grid">
+            <h3>Miscellaneous</h3>
+            <div class="form-field-group">
+                <div class="field-row-group">
+                    <label for="drive">Are you willing to use your personal vehicle for your job duties?</label>
+                    <select id="drive" name="drive" required>
+                        <option value="" selected></option>
+                        <option value="high-school">Yes</option>
+                        <option value="associate-degree">No</option>
+                        <option value="bachelors-degree">Prefer not to answer</option>
+                    </select>
+                </div>
+
+                <div class="field-row-group">
+                    <label for="military">Have you previously served in the armed forces?</label>
+                    <select id="military" name="military" required>
+                        <option value="" selected></option>
+                        <option value="high-school">Yes</option>
+                        <option value="associate-degree">No</option>
+                        <option value="bachelors-degree">Prefer not to answer</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
 
 
         <script>
-            let eCount = 1;
+            {
+                let refCount = 1;
 
-            function addEducationSection() {
+                function addReference() {
+                    if (refCount < 4) {
+                        var formContainer = document.getElementById("reference-container");
+                        var newContact = formContainer.firstElementChild.cloneNode(true);
 
+                        formContainer.appendChild(newContact);
 
-                if (eCount < 4) {
-                    var formContainer = document.getElementById("educationContainer");
-                    var newContact = formContainer.firstElementChild.cloneNode(true);
+                        {
+                            const elements = document.getElementsByName("Reference Group Title");
+                            for (let i = 0; i < elements.length; i++) {
+                                elements[i].textContent = "Reference " + (i + 1);
+                            }
+                        }
 
-                    formContainer.appendChild(newContact);
+                        const deleteButton = document.createElement("button");
+                        deleteButton.type = "button";
+                        deleteButton.classList.add("delete-button");
+                        deleteButton.textContent = "Delete";
+                        deleteButton.onclick = function () {
+                            newContact.removeChild(deleteButton);
+                            formContainer.removeChild(newContact);
+                            refCount--;
+                        };
 
-                    const deleteButton = document.createElement("button");
-                    deleteButton.type = "button";
-                    deleteButton.classList.add("delete-button");
-                    deleteButton.textContent = "Delete";
-                    deleteButton.onclick = function () {
-                        removeEducation(newContact);
-                    };
+                        newContact.appendChild(deleteButton);
 
-                    newContact.appendChild(deleteButton);
-                    formContainer.appendChild(newContact);
+                        refCount++;
 
-                    eCount++;
-
-                } else {
-                    alert("Max Education Requirement Request Reached")
+                    } else {
+                        alert("Max Requested References Reached")
+                    }
                 }
             }
+            {
+                let eCount = 1;
 
-            function removeEducation(newContact) {
-                const formContainer = document.getElementById("educationContainer");
-                formContainer.removeChild(newContact);
+                function addEducationSection() {
+                    if (eCount < 4) {
+                        var formContainer = document.getElementById("education-container");
+                        var newContact = formContainer.firstElementChild.cloneNode(true);
 
-                eCount--;
+                        formContainer.appendChild(newContact);
 
+                        {
+                            const elements = document.getElementsByName("Education Group Title");
+                            for (let i = 0; i < elements.length; i++) {
+                                elements[i].textContent = "Education " + (i + 1);
+                            }
+                        }
+
+                        const deleteButton = document.createElement("button");
+                        deleteButton.type = "button";
+                        deleteButton.classList.add("delete-button");
+                        deleteButton.textContent = "Delete";
+                        deleteButton.onclick = function () {
+                            newContact.removeChild(deleteButton);
+                            formContainer.removeChild(newContact);
+                            contactCount--;
+                        };
+
+                        newContact.appendChild(deleteButton);
+
+                        eCount++;
+
+                    } else {
+                        alert("Max Education Requirement Request Reached")
+                    }
+                }
             }
         </script>
-
-        <hr class="divider">
-
-        <fieldset class="ref-grid">
-            <legend>Miscellaneous</legend>
-            <div>
-                <label for="drive">Are you willing to use your personal vehicle for your job duties?</label>
-                <select id="drive" name="drive" style="width: 70%; display: block; margin: 0 auto;">
-                    <option value="" selected></option>
-                    <option value="high-school">Yes</option>
-                    <option value="associate-degree">No</option>
-                    <option value="bachelors-degree">Prefer not to answer</option>
-                </select>
-            </div>
-            <div>
-                <label for="military">Have you previously served in the armed forces?</label>
-                <select id="military" name="military" style="width: 70%; display: block; margin: 0 auto;">
-                    <option value="" selected></option>
-                    <option value="high-school">Yes</option>
-                    <option value="associate-degree">No</option>
-                    <option value="bachelors-degree">Prefer not to answer</option>
-                </select>
-            </div>
-        </fieldset>
 
         <!-- <div class="footer center-group">
             <button class="button left" type="submit" formaction="/page2.html">

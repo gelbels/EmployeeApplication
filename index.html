@@ -24,10 +24,10 @@
     </form>
 
     <div class="footer center-group">
-        <button class="button left" onclick="movePage(-1)">
+        <button id="button-previous" class="button left" onclick="movePage(-1)">
             <span>Previous</span>
         </button>
-        <button class="button right" onclick="movePage(1)">
+        <button id="button-next" class="button right" onclick="movePage(1)">
             <span>Next</span>
         </button>
     </div>
@@ -44,7 +44,7 @@
 
         var iframes = []
 
-        var pageIndex = 2;
+        var pageIndex = 0;
 
         for (let i = 0; i < pages.length; i++) {
             const iframe = document.createElement("iframe")
@@ -61,15 +61,31 @@
         }
 
         const showPage = (index) => {
-            iframes[index].iFrameResizer.resize()
+            const iframe = iframes[index]
+            iframe.iFrameResizer.resize()
 
             iframes.forEach((iframe) => {
                 iframe.style.display = "none"
             })
 
-            // console.log("index", index)
+            iframe.style.display = "inline"
 
-            iframes[index].style.display = "inline"
+            if (index >= (pages.length - 1)) {
+                document.getElementById("button-previous").style.display = "none";
+                document.getElementById("button-next").style.display = "none";
+            } else {
+                if (index == 0) {
+                    document.getElementById("button-previous").style.display = "none";
+                } else {
+                    document.getElementById("button-previous").style.display = "block";
+                }
+
+                if (index == (pages.length - 2)) {
+                    document.querySelector("#button-next span").textContent = "Submit";
+                } else {
+                    document.querySelector("#button-next span").textContent = "Next";
+                }
+            }
         }
 
         const movePage = (direction) => {
@@ -90,13 +106,21 @@
 
             var valid = true;
 
-            console.log(currentForm.querySelectorAll("input"))
+            // console.log(currentForm.querySelectorAll("input"))
 
             currentForm.querySelectorAll("input").forEach((input) => {
                 if (input.validity.valid) {
                     input.classList.remove("invalid")
                 } else {
                     input.classList.add("invalid")
+                    valid = false
+                }
+            })
+            currentForm.querySelectorAll("textarea").forEach((textarea) => {
+                if (textarea.validity.valid) {
+                    textarea.classList.remove("invalid")
+                } else {
+                    textarea.classList.add("invalid")
                     valid = false
                 }
             })

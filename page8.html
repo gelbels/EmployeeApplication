@@ -60,26 +60,18 @@
     </div>
     <!-- </center> -->
     <form>
-        <span>
-            <label>Signature</label>
-            <textarea name="signature" rows="4" cols="50"></textarea>
-        </span>
-        <span>
-            <label>Date</label>
-            <input type="date" name="signature-date" id="Date" min="2023-09-01" />
-        </span>
+        <fieldset class="form-fields">
+            <div class="form-field-row">
+                <label>Signature</label>
+                <textarea name="signature" rows="1" cols="50" value="" placeholder="Name Here" required></textarea>
+            </div>
 
-        <!-- <div class="footer center-group">
-            <button class="button left" type="submit" formaction="/page7.html">
-                <span>Previous</span>
-            </button>
-            <button class="button right" type="submit" formaction="/finished.html">
-                <span>Submit</span>
-            </button>
-        </div> -->
+            <div class="form-field-row">
+                <label>Date</label>
+                <input type="date" name="signature-date" id="Date" min="2023-09-01" value="2023-12-06" required />
+            </div>
+        </fieldset>
     </form>
-
-
 </body>
 
 </html>
