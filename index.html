@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles2.css">
 </head>
 
-<body class="container">
+<main class="container">
     <div class="header">
         <h1>Unfinished Business</h1>
         <h2>Employment Application</h2>
@@ -44,7 +44,7 @@
 
         var iframes = []
 
-        var pageIndex = 2;
+        var pageIndex = 0;
 
         for (let i = 0; i < pages.length; i++) {
             const div = document.createElement("div")
@@ -106,7 +106,7 @@
         const movePage = (direction) => {
             // console.log(validateForm())
             if (direction === 1) {
-                // if (!validateForm()) return false;
+                if (!validateForm()) return false;
                 pageIndex = Math.min(pages.length - 1, pageIndex + 1)
             } else {
                 pageIndex = Math.max(0, pageIndex - 1)
@@ -159,6 +159,6 @@
             Next
         </a>
     </div> -->
-</body>
+</main>
 
 </html>
