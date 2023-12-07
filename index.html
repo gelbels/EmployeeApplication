@@ -44,7 +44,7 @@
 
         var iframes = []
 
-        var pageIndex = 0;
+        var pageIndex = 2;
 
         for (let i = 0; i < pages.length; i++) {
             const iframe = document.createElement("iframe")
@@ -121,6 +121,14 @@
                     textarea.classList.remove("invalid")
                 } else {
                     textarea.classList.add("invalid")
+                    valid = false
+                }
+            })
+            currentForm.querySelectorAll("select").forEach((select) => {
+                if (select.validity.valid) {
+                    select.classList.remove("invalid")
+                } else {
+                    select.classList.add("invalid")
                     valid = false
                 }
             })
