@@ -29,6 +29,11 @@
 }
 
 
+iframe {
+    width: 100%;
+    height: 40rem;
+}
+
 .container {
     display: flex;
     flex-direction: column;
