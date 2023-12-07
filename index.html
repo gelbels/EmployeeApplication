@@ -16,10 +16,95 @@
 
     <script src="/js/iframeResizer.min.js"></script>
 
-    <iframe id="iframe1" src="/page1.html" name="pages" frameborder="0"></iframe>
+    <!-- <iframe id="iframe1" src="/page1.html" name="pages" frameborder="0"></iframe>
+    <iframe id="iframe2" src="/page1.html" name="pages" frameborder="0"></iframe> -->
+
+    <form id="main-form" action="">
+
+    </form>
+
+    <div class="footer center-group">
+        <button class="button left" onclick="movePage(-1)">
+            <span>Previous</span>
+        </button>
+        <button class="button right" onclick="movePage(1)">
+            <span>Next</span>
+        </button>
+    </div>
 
     <script>
-        iFrameResize({ log: false }, "#iframe1")
+        const pages = [
+            "/page1.html",
+            "/page2.html",
+            "/page3-4.html",
+            "/page7.html",
+            "/page8.html",
+            "/finished.html"
+        ]
+
+        var iframes = []
+
+        var pageIndex = 2;
+
+        for (let i = 0; i < pages.length; i++) {
+            const iframe = document.createElement("iframe")
+            iframe.src = pages[i]
+            iframe.id = "iframe" + i
+            iframe.className = "page"
+            iframe.frameBorder = "0"
+            iframe.style.display = "none"
+
+            const form = document.getElementById("main-form")
+            form.appendChild(iframe)
+
+            iframes[i] = iFrameResize({ log: false }, "#iframe" + i)[0]
+        }
+
+        const showPage = (index) => {
+            iframes[index].iFrameResizer.resize()
+
+            iframes.forEach((iframe) => {
+                iframe.style.display = "none"
+            })
+
+            // console.log("index", index)
+
+            iframes[index].style.display = "inline"
+        }
+
+        const movePage = (direction) => {
+            // console.log(validateForm())
+            if (direction === 1) {
+                if (!validateForm()) return false;
+                pageIndex = Math.min(pages.length - 1, pageIndex + 1)
+            } else {
+                pageIndex = Math.max(0, pageIndex - 1)
+            }
+
+            showPage(pageIndex)
+        }
+
+        const validateForm = () => {
+            const currentIframe = iframes[pageIndex]
+            const currentForm = currentIframe.contentWindow.document.querySelectorAll("form")[0]
+
+            var valid = true;
+
+            console.log(currentForm.querySelectorAll("input"))
+
+            currentForm.querySelectorAll("input").forEach((input) => {
+                if (input.validity.valid) {
+                    input.classList.remove("invalid")
+                } else {
+                    input.classList.add("invalid")
+                    valid = false
+                }
+            })
+            return valid
+        }
+
+
+        showPage(pageIndex);
     </script>
 
     <!-- <div class="footer center">

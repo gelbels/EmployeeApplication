@@ -1,4 +1,4 @@
-.button {
+button {
     text-decoration: none;
     font-size: 1.25rem;
     padding: 0.5rem;
@@ -8,30 +8,31 @@
     border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
+    border: none;
 
     transition: 0.1s ease-out;
 }
 
-.button:hover {
+button:hover {
     padding: 0.5rem 2rem;
 }
 
-.button span {
+button span {
     display: block;
     transition: 0.1s ease-out;
 }
 
-.button.right:hover span {
+button.right:hover span {
     position: relative;
     transform: translateX(1rem);
 }
 
-.button.left:hover span {
+button.left:hover span {
     position: relative;
     transform: translateX(-1rem);
 }
 
-.button.right span::before {
+button.right span::before {
     content: ">>";
     position: absolute;
     opacity: 0;
@@ -39,14 +40,14 @@
     transition: 0.1s ease-out;
 }
 
-.button.right:hover span::before {
+button.right:hover span::before {
     content: ">>";
     position: absolute;
     transform: translateX(-1.75rem);
     opacity: 100;
 }
 
-.button.left span::after {
+button.left span::after {
     content: "<<";
     position: absolute;
     opacity: 0;
@@ -54,7 +55,7 @@
     transition: 0.1s ease-out;
 }
 
-.button.left:hover span::after {
+button.left:hover span::after {
     content: "<<";
     position: absolute;
     transform: translateX(0.25rem);

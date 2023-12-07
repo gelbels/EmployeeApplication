@@ -30,7 +30,13 @@
 
 
 iframe {
-    width: 100%;
+    width: 1px;
+    min-width: 100%;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input .invalid {
+    background-color: #fd2020;
 }
 
 /* for accessibility */
@@ -50,7 +56,8 @@ iframe {
     gap: 1rem;
 
     margin: auto;
-    max-width: 80ch;
+    width: 90%;
+    max-width: 120ch;
 }
 
 .field-row {
@@ -61,7 +68,20 @@ iframe {
 }
 
 .field-row-group {
-    display: grid;
+    /* display: grid;
+    justify-content: center;
+    grid-auto-flow: column; */
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.5rem;
+}
+
+.input-range {
+    /* display: grid;
+    place-content: center; */
+    display: flex;
     justify-content: center;
     grid-auto-flow: column;
 

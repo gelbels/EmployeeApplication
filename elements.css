@@ -33,9 +33,8 @@ h2 {
 
 h3 {
     margin: 0.2rem;
-    width: fit-content;
 
-    background-color: var(--bg-color-brighter);
+    /* background-color: var(--bg-color-brighter); */
     /* color: var(--text-color); */
 
     font-size: 1.25rem;
@@ -44,16 +43,6 @@ h3 {
 
     text-align: center;
     text-transform: uppercase;
-}
-
-p {
-    /* color: var(--text-color); */
-    /* text-align: center; */
-}
-
-label {
-    /* color: var(--text-color); */
-    /* text-align: center; */
 }
 
 input {
@@ -68,6 +57,10 @@ input {
     /* text-align: center; */
 }
 
+input:invalid::after {
+    content: "*";
+}
+
 input:invalid {
     /* background-color: ivory; */
     /* border: none;
@@ -75,7 +68,14 @@ input:invalid {
     border-radius: 5px; */
 }
 
-input:not(:focus):not(:placeholder-shown):invalid {
+/* input:not(:focus):not(:placeholder-shown):invalid {
+    --color-invalid: red;
+
+    border-color: var(--color-invalid);
+    transition: 0.5s;
+} */
+
+.invalid {
     --color-invalid: red;
 
     border-color: var(--color-invalid);
