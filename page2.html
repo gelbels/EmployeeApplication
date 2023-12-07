@@ -170,6 +170,23 @@
                 alert("A maximum amount of contact information fulfilled.")
             }
         }
+
+        function validateEmploymentDates() {
+            const startDateInput = document.querySelector('input[name="employment_dates_from[]"]');
+            const endDateInput = document.querySelector('input[name="employment_dates_to[]"]');
+
+            startDateInput.max = endDateInput.value; // Set the start date max to the end date
+            endDateInput.min = startDateInput.value; // Set the end date min to the start date
+
+            // // Check if the end date is not before the start date
+            // if (startDateInput.value > endDateInput.value) {
+            //     alert("End date cannot be before the start date");
+            //     endDateInput.value = startDateInput.value; // Reset end date to start date
+            // }
+        }
+
+        // Add event listener to the end date input
+        document.querySelector('input[name="employment_dates_to[]"]').addEventListener('input', validateEmploymentDates);
     </script>
 
     <div class="footer center-group">
