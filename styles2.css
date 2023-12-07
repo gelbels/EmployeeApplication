@@ -39,6 +39,11 @@ input .invalid {
     background-color: #fd2020;
 }
 
+.go-left {
+    transform: translate(-100%);
+    transition: 1s;
+}
+
 /* for accessibility */
 .visually-hidden:not(:focus):not(:active) {
     clip: rect(0 0 0 0);

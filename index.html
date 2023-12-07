@@ -47,22 +47,37 @@
         var pageIndex = 2;
 
         for (let i = 0; i < pages.length; i++) {
+            const div = document.createElement("div")
+            div.className = "page-container"
+            div.style.width = "100%"
+            div.style.height = "100%"
+
+            const form = document.getElementById("main-form")
+            form.appendChild(div)
+
             const iframe = document.createElement("iframe")
             iframe.src = pages[i]
             iframe.id = "iframe" + i
             iframe.className = "page"
             iframe.frameBorder = "0"
+            // iframe.style.position = "absolute"
+            // iframe.style.transform = "translateX(" + -100 * (i - pageIndex) + "%)"
             iframe.style.display = "none"
 
-            const form = document.getElementById("main-form")
-            form.appendChild(iframe)
+            div.appendChild(iframe)
 
             iframes[i] = iFrameResize({ log: false }, "#iframe" + i)[0]
+
         }
 
         const showPage = (index) => {
             const iframe = iframes[index]
             iframe.iFrameResizer.resize()
+
+            // for (let i = 0; i < pages.length; i++) {
+            //     const iframe = iframes[i]
+            //     iframe.style.transform = "translateX(" + -100 * (i - index) + "%)"
+            // }
 
             iframes.forEach((iframe) => {
                 iframe.style.display = "none"
@@ -91,7 +106,7 @@
         const movePage = (direction) => {
             // console.log(validateForm())
             if (direction === 1) {
-                if (!validateForm()) return false;
+                // if (!validateForm()) return false;
                 pageIndex = Math.min(pages.length - 1, pageIndex + 1)
             } else {
                 pageIndex = Math.max(0, pageIndex - 1)
