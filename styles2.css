@@ -28,10 +28,110 @@
     --text-color-contrast: #212729;
 }
 
+/* @media (prefers-reduced-motion) {
+    iframe {
+        transition: none;
+    }
+} */
 
 iframe {
     width: 1px;
     min-width: 100%;
+    /* transition: all 1s ease-in-out; */
+
+
+    --slide-time: 0.5s;
+    --transform-bounds-left: -100%;
+    --transform-bounds-right: 100%;
+}
+
+.fade-in {
+    animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+    animation: fade-out 0.5s ease-in-out forwards;
+}
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.slide-in-left {
+    animation: slide-in-left var(--slide-time) ease-in-out forwards;
+}
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(var(--transform-bounds-left));
+        position: inherit;
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slide-out-left {
+    animation: slide-out-left var(--slide-time) ease-in-out forwards;
+}
+
+@keyframes slide-out-left {
+    from {
+        transform: translateX(0);
+        position: inherit;
+    }
+
+    to {
+        transform: translateX(var(--transform-bounds-left));
+    }
+}
+
+.slide-in-right {
+    animation: slide-in-right var(--slide-time) ease-in-out forwards;
+}
+
+@keyframes slide-in-right {
+    from {
+        transform: translateX(var(--transform-bounds-right));
+        position: inherit;
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slide-out-right {
+    animation: slide-out-right var(--slide-time) ease-in-out forwards;
+}
+
+@keyframes slide-out-right {
+    from {
+        transform: translateX(0);
+        position: inherit;
+    }
+
+    to {
+        transform: translateX(var(--transform-bounds-right));
+    }
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -40,8 +140,20 @@ input .invalid {
 }
 
 .go-left {
-    transform: translate(-100%);
+    transform: translate(var(--transform-bounds-left));
     transition: 1s;
+}
+
+.page-container {
+    display: flex;
+    /* grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    min-height: 100vh; */
+    overflow: hidden;
 }
 
 /* for accessibility */

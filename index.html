@@ -14,6 +14,9 @@
         <h2>Employment Application</h2>
     </div>
 
+    <script src="https://unpkg.com/htmx.org@1.9.9"
+        integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+        crossorigin="anonymous"></script>
     <script src="/js/iframeResizer.min.js"></script>
 
     <!-- <iframe id="iframe1" src="/page1.html" name="pages" frameborder="0"></iframe>
@@ -46,44 +49,86 @@
 
         var pageIndex = 0;
 
-        for (let i = 0; i < pages.length; i++) {
+        const init = () => {
             const div = document.createElement("div")
             div.className = "page-container"
             div.style.width = "100%"
             div.style.height = "100%"
+            for (let i = 0; i < pages.length; i++) {
 
-            const form = document.getElementById("main-form")
-            form.appendChild(div)
+                const form = document.getElementById("main-form")
+                form.appendChild(div)
 
-            const iframe = document.createElement("iframe")
-            iframe.src = pages[i]
-            iframe.id = "iframe" + i
-            iframe.className = "page"
-            iframe.frameBorder = "0"
-            // iframe.style.position = "absolute"
-            // iframe.style.transform = "translateX(" + -100 * (i - pageIndex) + "%)"
-            iframe.style.display = "none"
+                const iframe = document.createElement("iframe")
+                iframe.src = pages[i]
+                iframe.id = "iframe" + i
+                iframe.className = "page"
+                iframe.frameBorder = "0"
+                // iframe.style.position = "absolute"
+                // iframe.style.transform = "translateX(" + -100 * (i - pageIndex) + "%)"
+                iframe.style.display = "none"
 
-            div.appendChild(iframe)
+                div.appendChild(iframe)
+                // form.appendChild(iframe)
 
-            iframes[i] = iFrameResize({ log: false }, "#iframe" + i)[0]
+                iframes[i] = iFrameResize({ log: false }, "#iframe" + i)[0]
 
+                iframe.addEventListener("animationstart", (event) => {
+                    console.log("LSDAM;kasd")
+                    event.element.style.display = "block"
+                })
+                iframe.addEventListener("animationend", (event) => {
+                    event.element.style.display = "none"
+                    // if (event.animationName == "slide-out-right" || event.animationName == "slide-out-left") {
+                    //     iframe.style.display = "none"
+                    // }
+                })
+            }
         }
 
-        const showPage = (index) => {
+
+        const elementFade = (element, fade) => {
+            if (fade) {
+                element.classList.remove("fade-in")
+                element.classList.add("fade-out")
+            } else {
+                element.classList.remove("fade-out")
+                element.classList.add("fade-in")
+            }
+        }
+
+        const elementSlideIn = (element, direction) => {
+            if (direction >= 0) {
+                element.classList.remove("slide-out-right")
+                element.classList.remove("slide-out-left")
+                element.classList.add("slide-in-right")
+            } else {
+                element.classList.remove("slide-out-left")
+                element.classList.remove("slide-out-right")
+                element.classList.add("slide-in-left")
+            }
+        }
+
+        const elementSlideOut = (element, direction) => {
+            if (direction >= 0) {
+                element.classList.remove("slide-in-left")
+                element.classList.remove("slide-in-right")
+                element.classList.add("slide-out-right")
+            } else {
+                element.classList.remove("slide-in-left")
+                element.classList.remove("slide-in-right")
+                element.classList.add("slide-out-left")
+            }
+        }
+
+        const updatePage = (index, direction) => {
             const iframe = iframes[index]
             iframe.iFrameResizer.resize()
 
             // for (let i = 0; i < pages.length; i++) {
             //     const iframe = iframes[i]
-            //     iframe.style.transform = "translateX(" + -100 * (i - index) + "%)"
+            //     iframe.style.transform = "translateX(" + 100 * (i - index) + "%)"
             // }
-
-            iframes.forEach((iframe) => {
-                iframe.style.display = "none"
-            })
-
-            iframe.style.display = "inline"
 
             if (index >= (pages.length - 1)) {
                 document.getElementById("button-previous").style.display = "none";
@@ -105,14 +150,31 @@
 
         const movePage = (direction) => {
             // console.log(validateForm())
+
+            const lastIndex = pageIndex
+
             if (direction === 1) {
-                if (!validateForm()) return false;
+                // if (!validateForm()) return false;
                 pageIndex = Math.min(pages.length - 1, pageIndex + 1)
             } else {
                 pageIndex = Math.max(0, pageIndex - 1)
             }
 
-            showPage(pageIndex)
+            {
+                const iframeLast = iframes[lastIndex]
+                // elementSlideOut(iframeLast, -direction)
+                elementFade(iframeLast, true)
+            }
+
+            console.log(lastIndex, pageIndex)
+
+            {
+                updatePage(pageIndex, direction)
+
+                const iframeNext = iframes[pageIndex]
+                // elementSlideIn(iframeNext, direction)
+                elementFade(iframeNext, false)
+            }
         }
 
         const validateForm = () => {
@@ -150,8 +212,7 @@
             return valid
         }
 
-
-        showPage(pageIndex);
+        init();
     </script>
 
     <!-- <div class="footer center">
