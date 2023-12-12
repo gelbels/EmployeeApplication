@@ -40,6 +40,15 @@
     <!-- <iframe id="iframe1" src="/page1.html" name="pages" frameborder="0"></iframe>
     <iframe id="iframe2" src="/page1.html" name="pages" frameborder="0"></iframe> -->
 
+    <!-- <div class="footer center-group">
+        <button id="button-previous" class="button left" onclick="movePage(-1)">
+            <span>Previous</span>
+        </button>
+        <button id="button-next" class="button right" onclick="movePage(1)">
+            <span>Next</span>
+        </button>
+    </div> -->
+
     <form id="main-form" action="">
 
     </form>
@@ -85,8 +94,8 @@
                 iframe.frameBorder = "0"
                 // iframe.style.position = "absolute"
                 // iframe.style.transform = "translateX(" + -100 * (i - pageIndex) + "%)"
-                iframe.style.display = "block";
-                iframe.style.visibility = "hidden";
+                iframe.style.display = "none";
+                // iframe.style.visibility = "hidden";
 
                 // iframes[i] = iFrameResize({ log: false }, "#iframe" + i)[0]
 
@@ -100,6 +109,18 @@
                 //     //     iframe.style.display = "none"
                 //     // }
                 // })
+
+                iframe.onload = function (event) {
+                    const iframe = event.target
+                    console.log(iframe)
+                    const currentForm = iframe.contentWindow.document.querySelectorAll("form")[0]
+                    if (!currentForm) return false;
+                    currentForm.querySelectorAll("input").forEach((input) => {
+                        input.addEventListener("input", (event) => {
+                            validateElement(event.target)
+                        })
+                    })
+                }
 
                 div.appendChild(iframe)
                 // form.appendChild(iframe)
@@ -115,9 +136,16 @@
             const nextPage = Math.min(pages.length - 1, Math.max(0, currentPage + direction))
             const nextIframe = iframes[nextPage]
 
-            iframes.forEach((iframe) => {
-                iframe.iFrameResizer.resize()
-            })
+            // iframes.forEach((iframe) => {
+            //     iframe.iFrameResizer.resize()
+            // })
+
+            if (direction >= 1) {
+                if (!validateForm()) return false;
+                // pageIndex = Math.min(pages.length - 1, pageIndex + 1)
+            } else {
+                // pageIndex = Math.max(0, pageIndex - 1)
+            }
 
             hidePage(currentPage, direction);
             showPage(nextPage, direction);
@@ -127,25 +155,87 @@
 
         const showPage = (index, direction) => {
             const iframe = iframes[index]
-            iframe.style.visibility = "visible"
             iframe.iFrameResizer.resize()
 
 
-            // iframe.style.display = "block"
+            iframe.style.display = "block"
+            // iframe.style.visibility = "visible"
             // iframe.style.animationName = "slide-in-right"
             // iframe.style.animationDuration = "0.5s"
             // iframe.style.animationFillMode = "forwards"
+
+            if (index >= (pages.length - 1)) {
+                document.getElementById("button-previous").style.display = "none";
+                document.getElementById("button-next").style.display = "none";
+            } else {
+                if (index == 0) {
+                    document.getElementById("button-previous").style.display = "none";
+                } else {
+                    document.getElementById("button-previous").style.display = "block";
+                }
+
+                if (index == (pages.length - 2)) {
+                    document.querySelector("#button-next span").textContent = "Submit";
+                } else {
+                    document.querySelector("#button-next span").textContent = "Next";
+                }
+            }
         }
 
         const hidePage = (index, direction) => {
             const iframe = iframes[index]
 
-            // iframe.style.display = "none"
-            iframe.style.visibility = "hidden"
+            iframe.style.display = "none"
+            // iframe.style.visibility = "hidden"
 
             // iframe.style.animationName = "slide-out-right"
             // iframe.style.animationDuration = "0.5s"
             // iframe.style.animationFillMode = "forwards"
+        }
+
+        const validateForm = () => {
+            const currentIframe = iframes[currentPage]
+            const currentForm = currentIframe.contentWindow.document.querySelectorAll("form")[0]
+
+            var valid = true;
+
+            // console.log(currentForm.querySelectorAll("input"))
+
+            currentForm.querySelectorAll("input").forEach((input) => {
+                if (input.validity.valid) {
+                    input.classList.remove("invalid")
+                } else {
+                    input.classList.add("invalid")
+                    valid = false
+                }
+            })
+            currentForm.querySelectorAll("textarea").forEach((textarea) => {
+                if (textarea.validity.valid) {
+                    textarea.classList.remove("invalid")
+                } else {
+                    textarea.classList.add("invalid")
+                    valid = false
+                }
+            })
+            currentForm.querySelectorAll("select").forEach((select) => {
+                if (select.validity.valid) {
+                    select.classList.remove("invalid")
+                } else {
+                    select.classList.add("invalid")
+                    valid = false
+                }
+            })
+
+            console.log(valid);
+            return valid
+        }
+
+        const validateElement = (element) => {
+            if (element.validity.valid) {
+                element.classList.remove("invalid")
+            } else {
+                element.classList.add("invalid")
+            }
         }
 
         init();

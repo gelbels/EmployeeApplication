@@ -11,8 +11,8 @@
 
 <body>
     <!-- <center> -->
-    <div class="container">
-        <h3>APPLICATION ACKNOWLEDGEMENT AND WAIVER <br> PLEASE READ CAREFULLY AND SIGN</h3>
+    <div class="container-waiver">
+        <h2>APPLICATION ACKNOWLEDGEMENT AND WAIVER <br> PLEASE READ CAREFULLY AND SIGN</h2>
 
         <p>In consideration of my job application by Unfinished Business, I agree to the following terms:</p>
         <ol>
@@ -57,21 +57,24 @@
                 at any time
                 during the probationary period or thereafter, without the need for a specific reason.</p>
             </ul>
-    </div>
-    <!-- </center> -->
-    <form>
-        <fieldset class="form-fields">
-            <div class="form-field-row">
-                <label>Signature</label>
-                <textarea name="signature" rows="1" cols="50" value="" placeholder="Name Here" required></textarea>
-            </div>
+            <form action="" method="post" id="referencesForm">
+                <div class="fieldset-group">
+                    <fieldset>
+                        <div class="input-wrapper">
+                            <label>Signature</label>
+                            <textarea name="signature" rows="1" cols="50" value="" placeholder="Name Here"
+                                required></textarea>
+                        </div>
 
-            <div class="form-field-row">
-                <label>Date</label>
-                <input type="date" name="signature-date" id="Date" min="2023-09-01" value="2023-12-05" required />
-            </div>
-        </fieldset>
-    </form>
+                        <div class="input-wrapper">
+                            <label>Date</label>
+                            <input type="date" name="signature-date" id="Date" min="2023-09-01" value="2023-12-05"
+                                required />
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+    </div>
 </body>
 
 </html>

@@ -9,41 +9,53 @@
     <script src="/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 
-<body class="container">
-    <!-- <h1>Unfinished Business</h1>
-    <h2>Employment Application</h2> -->
+<body>
+    <h2>References</h2>
 
     <form action="" method="post" id="referencesForm">
         <div id="reference-container" class="form-fields">
-            <fieldset>
-                <h3 name="Reference Group Title">Reference 1</h3>
+            <div class="fieldset-group">
+                <fieldset>
+                    <h3 name="Reference Group Title">Reference 1</h3>
 
-                <div class="form-field-group">
-                    <label class="visually-hidden" for="reference-name">Name</label>
-                    <input type="text" name="reference-name" placeholder="Name" required>
+                    <div class="input-wrapper">
+                        <input type="text" name="reference-name" placeholder="Name" required>
+                        <label for="reference-name">Name</label>
+                    </div>
 
-                    <label class="visually-hidden" for="company-name">Company Name</label>
-                    <input type="text" name="company-name" placeholder="Company Name">
+                    <div class="input-wrapper">
+                        <input type="text" name="company-name" placeholder="Company Name">
+                        <label for="company-name">Company Name</label>
+                    </div>
 
-                    <label class="visually-hidden" for="reference-title">Position/Title</label>
-                    <input type="text" name="reference-name" placeholder="Position/Title">
+                    <div class="input-wrapper">
+                        <input type="text" name="reference-name" placeholder="Position/Title">
+                        <label for="reference-title">Position/Title</label>
+                    </div>
 
-                    <label class="visually-hidden" for="reference-phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    <div class="input-wrapper">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                        <label for="reference-phone">Phone Number</label>
+                    </div>
 
-                    <label class="visually-hidden" for="reference-email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Email Address" required>
-                </div>
-            </fieldset>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        <label for="reference-email">Email Address</label>
+                    </div>
+                </fieldset>
+            </div>
         </div>
 
         <button type="button" id="refButton" onclick="addReference()">+ Add Reference</button>
 
-        <div class="form-fields">
+        <div class="fieldset-group">
             <fieldset>
+                <h3>Miscellaneous</h3>
+
                 <div class="form-field-group">
                     <label for="education">Highest Level of Education</label>
+                    <br>
                     <select id="education" name="education" required>
                         <option value="" selected></option>
                         <option value="high-school">High School</option>
@@ -54,65 +66,79 @@
                         <option value="doctorate">Other/Certificate</option>
                     </select>
                 </div>
-                <div class="form-field-group">
+
+                <div class="input-wrapper">
                     <textarea name="certificates"
                         placeholder="List any additional certificates or training here"></textarea>
                 </div>
             </fieldset>
-
         </div>
 
-
-
         <div id="education-container" class="form-fields">
-            <fieldset>
-                <h3 name="Education Group Title">Education 1</h3>
-                <div class="form-field-group">
-                    <label class="visually-hidden" for="institution">Institution Name</label>
-                    <input type="text" id="institution" name="institution[]" placeholder="Institution Name" required>
+            <div class="fieldset-group">
+                <fieldset>
+                    <h3 name="Education Group Title">Education 1</h3>
 
-                    <label class="visually-hidden" for="degree">Degree Obtained</label>
-                    <input type="text" id="degree" name="degree[]" placeholder="Degree Obtained" required>
+                    <div class="input-wrapper">
+                        <input type="text" id="institution" name="institution[]" placeholder="Institution Name"
+                            required>
+                        <label for="institution">Institution Name</label>
+                    </div>
 
-                    <label class="visually-hidden" for="graduation_year">Graduation Year</label>
-                    <input type="text" id="graduation_year" name="graduation_year[]" placeholder="Graduation Year"
-                        required>
+                    <div class="input-wrapper">
+                        <input type="text" id="degree" name="degree[]" placeholder="Degree Obtained" required>
+                        <label for="degree">Degree Obtained</label>
+                    </div>
 
-                    <label class="visually-hidden" for="graduation_loc">City</label>
-                    <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
+                    <div class="input-wrapper">
+                        <input type="text" id="graduation_year" name="graduation_year[]" placeholder="Graduation Year"
+                            required>
+                        <label for="graduation_year">Graduation Year</label>
+                    </div>
 
-                    <label class="visually-hidden" for="graduation_loc">State</label>
-                    <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
-                </div>
-            </fieldset>
+                    <div class="input-wrapper">
+                        <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
+                        <label for="graduation_loc">City</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
+                        <label for="graduation_loc">State</label>
+                    </div>
+                </fieldset>
+            </div>
         </div>
 
         <button type="button" id="refButton" onclick="addEducationSection()">+ Add Education</button>
 
-        <fieldset class="ref-grid">
+        <div class="fieldset-group">
             <h3>Miscellaneous</h3>
-            <div class="form-field-group">
-                <div class="field-row-group">
-                    <label for="drive">Are you willing to use your personal vehicle for your job duties?</label>
-                    <select id="drive" name="drive" required>
-                        <option value="" selected></option>
-                        <option value="high-school">Yes</option>
-                        <option value="associate-degree">No</option>
-                        <option value="bachelors-degree">Prefer not to answer</option>
-                    </select>
-                </div>
 
-                <div class="field-row-group">
-                    <label for="military">Have you previously served in the armed forces?</label>
-                    <select id="military" name="military" required>
-                        <option value="" selected></option>
-                        <option value="high-school">Yes</option>
-                        <option value="associate-degree">No</option>
-                        <option value="bachelors-degree">Prefer not to answer</option>
-                    </select>
-                </div>
+            <div class="form-field-group">
+                <!-- <div class="field-row-group"> -->
+                <label for="drive">Are you willing to use your personal vehicle for your job duties?</label>
+                <br>
+                <select id="drive" name="drive" required>
+                    <option value="" selected></option>
+                    <option value="high-school">Yes</option>
+                    <option value="associate-degree">No</option>
+                    <option value="bachelors-degree">Prefer not to answer</option>
+                </select>
             </div>
-        </fieldset>
+
+            <div class="form-field-group">
+                <!-- <div class="field-row-group"> -->
+                <label for="military">Have you previously served in the armed forces?</label>
+                <br>
+                <select id="military" name="military" required>
+                    <option value="" selected></option>
+                    <option value="high-school">Yes</option>
+                    <option value="associate-degree">No</option>
+                    <option value="bachelors-degree">Prefer not to answer</option>
+                </select>
+                <!-- </div> -->
+            </div>
+        </div>
 
 
         <script>

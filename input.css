@@ -1,39 +1,6 @@
 input {
-    /* color: var(--text-color-contrast); */
-    /* min-width: 1rem; */
     width: 100%;
-
-    /* font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300; */
-
-    /* text-align: center; */
 }
-
-input:invalid::after {
-    content: "*";
-}
-
-input:invalid {
-    /* background-color: ivory; */
-    /* border: none;
-    outline: 2px solid red;
-    border-radius: 5px; */
-}
-
-/* input:not(:focus):not(:placeholder-shown):invalid {
-    --color-invalid: red;
-
-    border-color: var(--color-invalid);
-    transition: 0.5s;
-} */
-
-/* .invalid {
-    --color-invalid: red;
-
-    border-color: var(--color-invalid);
-    transition: 0.5s;
-} */
 
 input:focus {
     --color-invalid: blue;
@@ -49,11 +16,6 @@ input:not(:focus):not(:placeholder-shown):invalid~.error-message {
 input[type="radio"],
 input[type="checkbox"] {
     width: min-content
-}
-
-input::placeholder {
-    /* opacity: 1; */
-    /* color: var(--text-color); */
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -102,16 +64,15 @@ input .invalid {
 
 
 textarea {
-    border: solid 1px var(--border-color);
+    /* border: solid 1px var(--border-color); */
 
     width: 100%;
 
-    padding: 0 0.75rem;
-    position: relative;
+    /* padding: 0 0.75rem;
+    position: relative; */
 
     /* debug */
-    background-color: #fd2020;
-
+    /* background-color: #fd2020; */
 }
 
 .input-wrapper {
@@ -119,7 +80,6 @@ textarea {
     /* margin-inline: auto; */
     /* margin: 0; */
     width: 100%;
-    height: fit-content;
 
     border: solid 1px var(--border-color);
 
@@ -163,6 +123,8 @@ textarea {
     margin: 0.375rem 0rem;
     padding: 0rem 0.25rem;
 
+    pointer-events: none;
+
     transform-origin: top left;
     transition: transform 250ms;
 
@@ -178,4 +140,14 @@ textarea {
 .input-wrapper textarea:not(:placeholder-shown)~label {
     transform: translate(0.1rem, -0.75em) scale(0.75);
     background-color: var(--bg-color);
+}
+
+.input-wrapper:has(input.invalid),
+.input-wrapper:has(textarea.invalid),
+.input-wrapper:has(input.invalid) {
+    border-color: #fd2020;
+}
+
+.input-wrapper input[required]~label::after {
+    content: "*";
 }
