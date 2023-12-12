@@ -34,6 +34,37 @@
     }
 } */
 
+.input-text {
+    border: solid 1px #ccc;
+
+    padding: 0 0.75rem;
+    position: relative;
+}
+
+.input-text input {
+    border: none;
+    outline: none;
+
+    padding: 0.75rem 0 0.75rem;
+
+    font-size: 1.25rem;
+}
+
+.input-text label {
+    font-size: 1.25rem;
+    position: absolute;
+
+    transform-origin: top left;
+    transform: translate(0, .75rem) scale(1);
+    transition: all .1s ease-in-out;
+
+    /* transform: translate(0, 16px) scale(1); */
+}
+
+.input-text.input-active label {
+    transform: translate(0, 0rem) scale(0.565);
+}
+
 iframe {
     width: 1px;
     min-width: 100%;
