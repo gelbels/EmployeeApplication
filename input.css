@@ -1,0 +1,151 @@
+input {
+    /* color: var(--text-color-contrast); */
+    /* min-width: 1rem; */
+    width: 100%;
+
+    /* font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; */
+
+    /* text-align: center; */
+}
+
+input:invalid::after {
+    content: "*";
+}
+
+input:invalid {
+    /* background-color: ivory; */
+    /* border: none;
+    outline: 2px solid red;
+    border-radius: 5px; */
+}
+
+/* input:not(:focus):not(:placeholder-shown):invalid {
+    --color-invalid: red;
+
+    border-color: var(--color-invalid);
+    transition: 0.5s;
+} */
+
+/* .invalid {
+    --color-invalid: red;
+
+    border-color: var(--color-invalid);
+    transition: 0.5s;
+} */
+
+input:focus {
+    --color-invalid: blue;
+
+    border-color: var(--color-invalid);
+    transition: 0.5s;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid~.error-message {
+    display: block;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: min-content
+}
+
+input::placeholder {
+    /* opacity: 1; */
+    /* color: var(--text-color); */
+}
+
+/* Mark input boxes that gets an error on validation: */
+input .invalid {
+    background-color: #fd2020;
+}
+
+
+.input-text {
+    border: solid 1px #ccc;
+
+    padding: 0 0.75rem;
+    position: relative;
+}
+
+.input-text input {
+    border: none;
+    outline: none;
+
+    background-color: Canvas;
+
+    padding: 0.75rem 0 0.75rem;
+
+    font-size: 1.25rem;
+}
+
+.input-text label {
+    font-size: 1.25rem;
+    position: absolute;
+
+
+    padding: 0 0.5rem;
+    left: 0rem;
+
+    transform-origin: top left;
+    transform: translate(0, .75rem) scale(1);
+    transition: all 0.125s ease-in-out;
+
+    outline: rgba(255, 255, 255, 0) solid 1px;
+}
+
+.input-text.input-active label {
+    transform: translate(0.5rem, -0.5rem) scale(0.565);
+    background-color: Canvas;
+}
+
+
+
+.input-wrapper {
+    /* To create space for floating inputs */
+    /* margin-inline: auto; */
+    /* margin: 0; */
+    width: 100%;
+
+    background-color: #fd2020;
+    border: solid 1px #ccc;
+
+    /* padding: 0 0.5rem; */
+    position: relative;
+}
+
+.input-wrapper input {
+    border: none;
+    outline: none;
+
+    background-color: Canvas;
+
+    padding: 0.5rem 0 0.5rem;
+}
+
+.input-wrapper input::placeholder {
+    color: transparent;
+}
+
+.input-wrapper input~label {
+    position: absolute;
+
+    left: 0rem;
+    margin: 0.25rem;
+    padding: 0.25rem;
+
+    transform-origin: top left;
+    transition: all 250ms;
+}
+
+/* Input is empty */
+.input-wrapper input:placeholder-shown {}
+
+
+/* Input has value */
+.input-wrapper input:focus+label,
+.input-wrapper input:not(:placeholder-shown)+label {
+    transform: translate(0rem, -0.9rem) scale(0.75);
+    background-color: Canvas;
+}

@@ -14,36 +14,17 @@
         <h2>Employment Application</h2>
     </div>
 
-    <div class="input-text input-active">
+    <div class="input-text">
         <label for="name">First Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" data-placeholder="First Name" required>
     </div>
 
-    <script>
-        const elements = document.getElementsByClassName("input-text");
+    <div class="input-wrapper">
+        <input type="text" id="middle-name" name="middle-name" placeholder="Middle Name" pattern="[A-Za-z\s]+" required>
+        <label for="middle-name">Middle</label>
+    </div>
 
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
-            const input = element.getElementsByTagName("input")[0];
-
-            input.addEventListener("focus", () => {
-                element.classList.add("input-active")
-            })
-            input.addEventListener("blur", () => {
-                if (input.value == "") {
-                    element.classList.remove("input-active")
-                }
-            })
-        }
-
-        const floatContainer = document.getElementById('floatContainer');
-        floatField.addEventListener('focus', () => {
-            floatContainer.classList.add('active');
-        });
-        floatField.addEventListener('blur', () => {
-            floatContainer.classList.remove('active');
-        });
-    </script>
+    <script src="/niceinput.js"></script>
 
     <script src="https://unpkg.com/htmx.org@1.9.9"
         integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
@@ -76,6 +57,104 @@
             "/finished.html"
         ]
 
+        var iframes = [];
+
+        var currentPage = 0;
+
+        const init = () => {
+            const form = document.getElementById("main-form")
+
+            const div = document.createElement("div")
+            div.className = "page-container"
+            div.style.width = "100%"
+            div.style.height = "100%"
+            form.appendChild(div)
+
+            var i = 0;
+            pages.forEach((page) => {
+                const iframe = document.createElement("iframe")
+                iframe.src = page
+                iframe.id = "iframe-page" + i++; // id's must be unique???
+                iframe.className = "page"
+                iframe.frameBorder = "0"
+                // iframe.style.position = "absolute"
+                // iframe.style.transform = "translateX(" + -100 * (i - pageIndex) + "%)"
+                iframe.style.display = "block";
+                iframe.style.visibility = "hidden";
+
+                // iframes[i] = iFrameResize({ log: false }, "#iframe" + i)[0]
+
+                // iframe.addEventListener("animationstart", (event) => {
+                //     console.log("LSDAM;kasd")
+                //     event.element.style.display = "block"
+                // })
+                // iframe.addEventListener("animationend", (event) => {
+                //     event.element.style.display = "none"
+                //     // if (event.animationName == "slide-out-right" || event.animationName == "slide-out-left") {
+                //     //     iframe.style.display = "none"
+                //     // }
+                // })
+
+                div.appendChild(iframe)
+                // form.appendChild(iframe)
+            })
+
+            iframes = iFrameResize({ log: false }, ".page-container iframe");
+
+            showPage(0, 1);
+        }
+
+        const movePage = (direction) => {
+            const currentIframe = iframes[currentPage]
+            const nextPage = Math.min(pages.length - 1, Math.max(0, currentPage + direction))
+            const nextIframe = iframes[nextPage]
+
+            iframes.forEach((iframe) => {
+                iframe.iFrameResizer.resize()
+            })
+
+            hidePage(currentPage, direction);
+            showPage(nextPage, direction);
+
+            currentPage = nextPage;
+        }
+
+        const showPage = (index, direction) => {
+            const iframe = iframes[index]
+            iframe.style.visibility = "visible"
+            iframe.iFrameResizer.resize()
+
+
+            // iframe.style.display = "block"
+            // iframe.style.animationName = "slide-in-right"
+            // iframe.style.animationDuration = "0.5s"
+            // iframe.style.animationFillMode = "forwards"
+        }
+
+        const hidePage = (index, direction) => {
+            const iframe = iframes[index]
+
+            // iframe.style.display = "none"
+            iframe.style.visibility = "hidden"
+
+            // iframe.style.animationName = "slide-out-right"
+            // iframe.style.animationDuration = "0.5s"
+            // iframe.style.animationFillMode = "forwards"
+        }
+
+        init();
+    </script>
+
+    <!-- <script>
+        const pages = [
+            "/page1.html",
+            "/page2.html",
+            "/page3-4.html",
+            "/page7.html",
+            "/page8.html",
+            "/finished.html"
+        ]
+
         var iframes = []
 
         var pageIndex = 0;
@@ -97,7 +176,7 @@
                 iframe.frameBorder = "0"
                 // iframe.style.position = "absolute"
                 // iframe.style.transform = "translateX(" + -100 * (i - pageIndex) + "%)"
-                iframe.style.display = "none"
+                // iframe.style.display = "none"
 
                 div.appendChild(iframe)
                 // form.appendChild(iframe)
@@ -244,7 +323,7 @@
         }
 
         init();
-    </script>
+    </script> -->
 
     <!-- <div class="footer center">
         <a class="button" href="page2.html">

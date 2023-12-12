@@ -3,7 +3,17 @@
 } */
 
 fieldset {
-    background-color: var(--bg-color-brighter);
+    /* background-color: var(--bg-color-brighter); */
+    /* border: 1px solid var(--bg-color-accent); */
+
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    margin: 1rem auto;
+    width: 90%;
 }
 
 h1 {
@@ -47,62 +57,4 @@ h3 {
 
     text-align: center;
     text-transform: uppercase;
-}
-
-input {
-    /* color: var(--text-color-contrast); */
-    /* min-width: 1rem; */
-    width: 100%;
-
-    /* font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300; */
-
-    /* text-align: center; */
-}
-
-input:invalid::after {
-    content: "*";
-}
-
-input:invalid {
-    /* background-color: ivory; */
-    /* border: none;
-    outline: 2px solid red;
-    border-radius: 5px; */
-}
-
-/* input:not(:focus):not(:placeholder-shown):invalid {
-    --color-invalid: red;
-
-    border-color: var(--color-invalid);
-    transition: 0.5s;
-} */
-
-.invalid {
-    --color-invalid: red;
-
-    border-color: var(--color-invalid);
-    transition: 0.5s;
-}
-
-input:focus {
-    --color-invalid: blue;
-
-    border-color: var(--color-invalid);
-    transition: 0.5s;
-}
-
-input:not(:focus):not(:placeholder-shown):invalid~.error-message {
-    display: block;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-    width: min-content
-}
-
-input::placeholder {
-    opacity: 1;
-    /* color: var(--text-color); */
 }

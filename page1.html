@@ -9,7 +9,7 @@
     <script src="/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 
-<body class="container">
+<body>
     <!-- <div class="header">
         <h1>Unfinished Business</h1>
         <h2>Employment Application</h2>
@@ -17,46 +17,59 @@
 
 
     <form action="" method="post" class="form-fields">
-        <fieldset>
-            <!-- <div class="center"> -->
-            <h3>Contact</h3>
-            <!-- </div> -->
+        <div class="fieldset-group">
+            <fieldset>
+                <h3>Contact</h3>
+                <div class="input-wrapper">
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" pattern="[A-Za-z\s]+"
+                        required>
+                    <label for="first-name">First Name</label>
+                </div>
 
-            <div class="form-field-group">
-                <label class="visually-hidden" for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" placeholder="First Name" pattern="[A-Za-z\s]+"
-                    required>
+                <div class="input-wrapper">
+                    <input type="text" id="middle-name" name="middle-name" placeholder="Middle Name"
+                        pattern="[A-Za-z\s]+" required>
+                    <label for="middle-name">Middle Name</label>
+                </div>
 
-                <label class="visually-hidden" for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="last-name" placeholder="Last Name" pattern="[A-Za-z\s]+"
-                    required>
+                <div class="input-wrapper">
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" pattern="[A-Za-z\s]+"
+                        required>
+                    <label for="last-name">Last Name</label>
+                </div>
+            </fieldset>
 
-                <label class="visually-hidden" for="middle-name">Middle</label>
-                <input type="text" id="middle-name" name="middle-name" placeholder="Middle Name" pattern="[A-Za-z\s]+"
-                    required>
-            </div>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    <label for="phone">Phone Number</label>
+                </div>
 
-            <div class="form-field-group">
-                <label class="visually-hidden" for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="Phone Number"
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    <label for="email">Email Address</label>
+                </div>
 
-                <label class="visually-hidden" for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Email Address" required>
-            </div>
-
-
-            <!-- <label for="desired-salary">Desired Salary</label>
-            <input type="text" id="desired-salary" name="desired-salary" pattern="\d+(\.\d{2})?" required> -->
-
-            <div class="form-field-group">
                 <div class="form-field-buttons">
                     <label for="age">
                         <input type="checkbox" id="age" name="age">
                         Are you at least 18 years old?
                     </label>
                 </div>
+            </fieldset>
+        </div>
+        <fieldset>
+            <div class="form-field-group">
             </div>
+
+            <div class="form-field-group">
+            </div>
+
+
+            <!-- <label for="desired-salary">Desired Salary</label>
+            <input type="text" id="desired-salary" name="desired-salary" pattern="\d+(\.\d{2})?" required> -->
+
         </fieldset>
 
         <fieldset>
