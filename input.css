@@ -73,7 +73,7 @@ input .invalid {
     border: none;
     outline: none;
 
-    background-color: Canvas;
+    background-color: var(--bg-color);
 
     padding: 0.75rem 0 0.75rem;
 
@@ -97,10 +97,22 @@ input .invalid {
 
 .input-text.input-active label {
     transform: translate(0.5rem, -0.5rem) scale(0.565);
-    background-color: Canvas;
+    background-color: var(--bg-color);
 }
 
 
+textarea {
+    border: solid 1px var(--border-color);
+
+    width: 100%;
+
+    padding: 0 0.75rem;
+    position: relative;
+
+    /* debug */
+    background-color: #fd2020;
+
+}
 
 .input-wrapper {
     /* To create space for floating inputs */
@@ -109,20 +121,23 @@ input .invalid {
     width: 100%;
     height: fit-content;
 
-    border: solid 1px #ccc;
+    border: solid 1px var(--border-color);
 
     padding: 0 0.5rem;
     position: relative;
+
+    background-color: var(--bg-color);
 
     /* debug */
     /* background-color: #fd2020; */
 }
 
-.input-wrapper input {
+.input-wrapper input,
+.input-wrapper textarea {
     border: none;
     outline: none;
 
-    background-color: Canvas;
+    background-color: var(--bg-color);
 
     padding: 0.5rem 0rem 0.25rem;
 }
@@ -134,7 +149,14 @@ input .invalid {
     color: transparent;
 }
 
-.input-wrapper input~label {
+.input-wrapper textarea::placeholder {
+    position: absolute;
+    top: 20rem;
+    /* color: transparent; */
+}
+
+.input-wrapper input~label,
+.input-wrapper textarea~label {
     position: absolute;
 
     left: 0.25rem;
@@ -150,8 +172,10 @@ input .invalid {
 
 
 /* Input has value */
-.input-wrapper input:focus+label,
-.input-wrapper input:not(:placeholder-shown)+label {
+.input-wrapper input:focus~label,
+.input-wrapper input:not(:placeholder-shown)~label,
+.input-wrapper textarea:focus~label,
+.input-wrapper textarea:not(:placeholder-shown)~label {
     transform: translate(0.1rem, -0.75em) scale(0.75);
-    background-color: Canvas;
+    background-color: var(--bg-color);
 }

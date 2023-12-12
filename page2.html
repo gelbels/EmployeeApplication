@@ -13,10 +13,10 @@
     <!-- <h1>Unfinished Business</h1>
     <h2>Employment Application</h2> -->
 
-    <form action="" method="post">
-        <h3>Work History</h3>
-
-        <div id="form-container" class="fieldset-group">
+    <h2>Work History</h2>
+    <form action="" method="post" id="form-container" class="form-fields">
+        <div class="fieldset-group">
+            <h2 name="Field Group Title">Employer 1</h2>
             <fieldset>
                 <h3>Supervisor Contact</h3>
 
@@ -64,88 +64,68 @@
                     <label for="zip">ZIP Code</label>
                 </div>
             </fieldset>
-        </div>
 
-        <div id="form-container" class="form-fields">
             <fieldset>
-                <h3 name="Field Group Title">Employer 1</h3>
-                <div class="form-field-group">
-
-                </div>
-
-                <div class="form-field-group">
-                    <div class="field-row-group">
-                        <label for="employment_dates_from">Employment Dates</label>
-                        <div class="input-range">
-                            <label class="visually-hidden" for="employment_dates_from">From</label>
-                            <input type="date" name="employment_dates_from[]" value="2023-12-05" placeholder="From"
-                                required>
-
-                            <span>-</span>
-
-                            <label class="visually-hidden" for="employment_dates_to">To</label>
-                            <input type="date" name="employment_dates_to[]" value="2023-12-01" placeholder="To"
-                                required>
-                        </div>
+                <div class="input-range">
+                    <label for="employment_dates_from">Employment Dates</label>
+                    <div class="input-wrapper">
+                        <input type="date" id="employment_dates_from" name="employment_dates_from" value="2023-12-01"
+                            placeholder="From" required>
+                        <label for="employment_dates_from">From</label>
                     </div>
 
-                    <div class="field-row-group">
-                        <label for="pay_start">Pay or Salary</label>
-                        <div class="input-range">
-                            <label class="visually-hidden" for="pay_start">Pay or Salary - Start $</label>
-                            <input type="text" name="pay_start[]" placeholder="Start" required>
-
-                            <span>-</span>
-
-                            <label class="visually-hidden" for="pay_final">Pay or Salary - Final $</label>
-                            <input type="text" name="pay_final[]" placeholder="Final" required>
-                        </div>
-                    </div>
-
-                    <div class="field-row">
-                        <label class="visually-hidden" for="last_job_title">Job Title</label>
-                        <input type="text" name="last_job_title[]" placeholder="Job Title" required>
-                    </div>
-
-                    <div class="field-row">
-                        <label for="contact_employer">
-                            <input type="checkbox" id="contact_employer" name="contact_employer">
-                            May we contact this employer?
-                        </label>
+                    <div class="input-wrapper">
+                        <input type="date" id="employment_dates_to" name="employment_dates_to" value="2023-12-05"
+                            placeholder="To" required>
+                        <label for="employment_dates_to">To</label>
                     </div>
                 </div>
 
-                <div class="form-field-group">
-                    <div>
+                <div class="input-range">
+                    <label for="pay_start">Pay or Salary</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="pay_start" name="pay_start" placeholder="Start" required>
+                        <label for="pay_start">Starting</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="pay_final" name="pay_final" placeholder="Final" required>
+                        <label for="pay_final">Final</label>
+                    </div>
+                </div>
+
+                <div class="input-wrapper">
+                    <input type="text" id="last_job_title" name="last_job_title" placeholder="Job Title" required>
+                    <label for="last_job_title">Job Title</label>
+                </div>
+
+                <div class="form-field-buttons">
+                    <label for="contact_employer">
+                        <input type="checkbox" id="contact_employer" name="contact_employer">
+                        May we contact this employer?
+                    </label>
+                </div>
+
+                <div class="input-range">
+                    <div class="input-wrapper">
                         <label for="reason_for_leaving">Reason for Leaving <b>(Be Specific)</b></label>
-                        <br>
-                        <textarea class="custom-textarea" name="reason_for_leaving[]"
+                        <textarea id="reason_for_leaving" name="reason_for_leaving"
                             placeholder="Ex Pursuing a new opportunity for career growth." rows="6" required></textarea>
                     </div>
 
-                    <div>
+                    <div class="input-wrapper">
                         <label for="duties_skills">Duties, Skills, Advancements</label>
-                        <br>
-                        <textarea class="custom-textarea" name="duties_skills[]"
+                        <textarea id="duties_skills" name="duties_skills"
                             placeholder="Ex Managed a team of 10, proficient in project management." rows="6"
                             required></textarea>
                     </div>
                 </div>
             </fieldset>
         </div>
-        <div class="center">
-            <button type="button" id="refButton" onclick="addContact()">+ Add Contact</button>
-        </div>
-
-        <!-- <div class="footer center-group">
-            <button class="button left" type="submit" formaction="/page1.html">
-                <span>Previous</span>
-            </button>
-            <button class="button right" type="submit" formaction="/page3-4.html">
-                <span>Next</span>
-            </button>
-        </div> -->
     </form>
+    <div class="center">
+        <button type="button" id="refButton" onclick="addContact()">+ Add Contact</button>
+    </div>
 
     <script>
         let contactCount = 1;

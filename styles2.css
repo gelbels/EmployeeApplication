@@ -20,6 +20,9 @@
     --bg-color-brighter: #191b1d;
     --bg-color-accent: #ac5730;
     --bg-color-contrast: #efefef;
+
+    --border-color: #6d6b79;
+
     --text-color: #f8e6e1;
     --text-color-contrast: #212729;
 }
@@ -186,7 +189,7 @@ iframe {
 
     margin: auto;
     width: 90%;
-    max-width: 120ch;
+    /* max-width: 120ch; */
 }
 
 .field-row {
@@ -211,6 +214,8 @@ iframe {
     /* display: grid;
     place-content: center; */
     display: flex;
+    flex-wrap: wrap;
+    /* flex: 1 1 auto; */
     justify-content: center;
     grid-auto-flow: column;
 
@@ -259,4 +264,9 @@ iframe {
     grid-auto-flow: column;
 
     gap: 0.5rem;
+}
+
+.center {
+    display: grid;
+    place-content: center;
 }
