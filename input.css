@@ -107,12 +107,15 @@ input .invalid {
     /* margin-inline: auto; */
     /* margin: 0; */
     width: 100%;
+    height: fit-content;
 
-    background-color: #fd2020;
     border: solid 1px #ccc;
 
-    /* padding: 0 0.5rem; */
+    padding: 0 0.5rem;
     position: relative;
+
+    /* debug */
+    /* background-color: #fd2020; */
 }
 
 .input-wrapper input {
@@ -121,8 +124,11 @@ input .invalid {
 
     background-color: Canvas;
 
-    padding: 0.5rem 0 0.5rem;
+    padding: 0.5rem 0rem 0.25rem;
 }
+
+/* Input is empty */
+/* .input-wrapper input:placeholder-shown {} */
 
 .input-wrapper input::placeholder {
     color: transparent;
@@ -131,21 +137,21 @@ input .invalid {
 .input-wrapper input~label {
     position: absolute;
 
-    left: 0rem;
-    margin: 0.25rem;
-    padding: 0.25rem;
+    left: 0.25rem;
+    margin: 0.375rem 0rem;
+    padding: 0rem 0.25rem;
 
     transform-origin: top left;
-    transition: all 250ms;
-}
+    transition: transform 250ms;
 
-/* Input is empty */
-.input-wrapper input:placeholder-shown {}
+    /* debug */
+    /* border: solid 1px #ccc; */
+}
 
 
 /* Input has value */
 .input-wrapper input:focus+label,
 .input-wrapper input:not(:placeholder-shown)+label {
-    transform: translate(0rem, -0.9rem) scale(0.75);
+    transform: translate(0.1rem, -0.75em) scale(0.75);
     background-color: Canvas;
 }

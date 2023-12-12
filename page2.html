@@ -15,98 +15,62 @@
 
     <form action="" method="post">
         <h3>Work History</h3>
-        <div id="form-container" class="form-fields">
-            <!-- <div class="visually-hidden">
-                <h3 name="Field Group Title">Employer 1</h3>
 
-                <fieldset>
+        <div id="form-container" class="fieldset-group">
+            <fieldset>
+                <h3>Supervisor Contact</h3>
 
-                    <label class="visually-hidden" for="employer_name">First Name</label>
+                <div class="input-wrapper">
                     <input type="text" name="employer_name[]" placeholder="First Name" required>
+                    <label for="employer_name">Supervisor First Name</label>
+                </div>
 
-                    <label class="visually-hidden" for="employer_name">Last Name</label>
+                <div class="input-wrapper">
                     <input type="text" name="employer_name[]" placeholder="Last Name" required>
+                    <label for="employer_name">Supervisor Last Name</label>
+                </div>
 
-                    <label class="visually-hidden" for="address">Address</label>
-                    <input type="text" name="address[]" placeholder="Address" required>
+                <div class="input-wrapper">
+                    <input type="tel" name="telephone[]" placeholder="Phone Numer: 123-456-7890" required>
+                    <label for="telephone">Supervisor Phone Number</label>
+                </div>
 
-                    <label class="visually-hidden" for="city_state_zip">City, State, ZIP</label>
-                    <input type="text" name="city_state_zip[]" placeholder="Ex Jacksonville, Florida, 32256" required>
+                <div class="input-wrapper">
+                    <input type="text" name="email[]" placeholder="Email Address" required>
+                    <label for="email">Email Address</label>
+                </div>
+            </fieldset>
 
-                    <label class="visually-hidden" for="telephone">Telephone</label>
-                    <input type="tel" name="telephone[]" placeholder="Ex 123-456-7890" required>
+            <fieldset>
+                <h3>Address</h3>
 
-                    <label class="visually-hidden" for="email">Email Address</label>
-                    <input type="text" name="email[]" placeholder="Ex example@email.com" required>
-                </fieldset>
-                <fieldset>
+                <div class="input-wrapper">
+                    <input type="text" id="street" name="street" placeholder="Street" pattern="[A-Za-z0-9\s]+" required>
+                    <label for="street">Street</label>
+                </div>
 
-                    <label class="visually-hidden" for="supervisor_name">Name of Last Supervisor</label>
-                    <input type="text" name="supervisor_name[]" placeholder="Ex First Last" required>
+                <div class="input-wrapper">
+                    <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
+                    <label for="city">City</label>
+                </div>
 
-                    <label class="visually-hidden" for="employment_dates_from">Employment Dates - From</label>
-                    <input type="month" name="employment_dates_from[]" placeholder="1" required>
+                <div class="input-wrapper">
+                    <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
+                    <label for="state">State</label>
+                </div>
 
-                    <label class="visually-hidden" for="employment_dates_to">Employment Dates - To</label>
-                    <input type="month" name="employment_dates_to[]" required>
+                <div class="input-wrapper">
+                    <input type="text" id="zip" name="zip" placeholder="ZIP Code" pattern="[0-9]{5}" required>
+                    <label for="zip">ZIP Code</label>
+                </div>
+            </fieldset>
+        </div>
 
-                    <label class="visually-hidden" for="pay_start">Pay or Salary - Start $</label>
-                    <input type="text" name="pay_start[]" placeholder="Ex 50000" required>
-
-                    <label class="visually-hidden" for="pay_final">Pay or Salary - Final $</label>
-                    <input type="text" name="pay_final[]" placeholder="Ex 60000" required>
-
-                    <label class="visually-hidden" for="last_job_title">Your Last Job Title</label>
-                    <input type="text" name="last_job_title[]" placeholder="Ex Professor" required>
-
-                    <label class="visually-hidden" for="contact_employer">May we contact this employer?<input
-                            type="checkbox" name="contact_employer[]"></label>
-
-                    <label class="visually-hidden" for="reason_for_leaving">Reason for Leaving <b>(Be
-                            Specific)</b></label>
-                    <textarea class="custom-textarea" name="reason_for_leaving[]"
-                        placeholder="Ex Pursuing a new opportunity for career growth." rows="6" required></textarea>
-
-                    <label class="visually-hidden" for="duties_skills">Duties, Skills, Advancements</label>
-                    <textarea class="custom-textarea" name="duties_skills[]"
-                        placeholder="Ex Managed a team of 10, proficient in project management." rows="6"
-                        required></textarea>
-                </fieldset>
-            </div> -->
+        <div id="form-container" class="form-fields">
             <fieldset>
                 <h3 name="Field Group Title">Employer 1</h3>
                 <div class="form-field-group">
-                    <h3>Supervisor Contact</h3>
-                    <div class="form-field-group">
-                        <label class="visually-hidden" for="employer_name">Supervisor First Name</label>
-                        <input type="text" name="employer_name[]" placeholder="First Name" required>
 
-                        <label class="visually-hidden" for="employer_name">Supervisor Last Name</label>
-                        <input type="text" name="employer_name[]" placeholder="Last Name" required>
-
-                        <label class="visually-hidden" for="telephone">Supervisor Phone Number</label>
-                        <input type="tel" name="telephone[]" placeholder="Phone Numer: 123-456-7890" required>
-
-                        <label class="visually-hidden" for="email">Email Address</label>
-                        <input type="text" name="email[]" placeholder="Email Address" required>
-                    </div>
-
-                    <h3>Address</h3>
-
-                    <div class="form-field-group">
-                        <label class="visually-hidden" for="street">Street</label>
-                        <input type="text" id="street" name="street" placeholder="Street" pattern="[A-Za-z0-9\s]+"
-                            required>
-
-                        <label class="visually-hidden" for="city">City</label>
-                        <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
-
-                        <label class="visually-hidden" for="state">State</label>
-                        <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
-
-                        <label class="visually-hidden" for="zip">ZIP Code</label>
-                        <input type="text" id="zip" name="zip" placeholder="ZIP Code" pattern="[0-9]{5}" required>
-                    </div>
                 </div>
 
                 <div class="form-field-group">

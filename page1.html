@@ -20,6 +20,7 @@
         <div class="fieldset-group">
             <fieldset>
                 <h3>Contact</h3>
+
                 <div class="input-wrapper">
                     <input type="text" id="first-name" name="first-name" placeholder="First Name" pattern="[A-Za-z\s]+"
                         required>
@@ -59,44 +60,43 @@
                 </div>
             </fieldset>
         </div>
-        <fieldset>
-            <div class="form-field-group">
-            </div>
 
-            <div class="form-field-group">
-            </div>
+        <div class="fieldset-group">
+            <fieldset>
+                <h3>Address</h3>
 
+                <div class="input-wrapper">
+                    <input type="text" id="street" name="street" placeholder="Street" pattern="[A-Za-z0-9\s]+" required>
+                    <label for="street">Street</label>
+                </div>
 
-            <!-- <label for="desired-salary">Desired Salary</label>
-            <input type="text" id="desired-salary" name="desired-salary" pattern="\d+(\.\d{2})?" required> -->
+                <div class="input-wrapper">
+                    <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
+                    <label for="city">City</label>
+                </div>
 
-        </fieldset>
+                <div class="input-wrapper">
+                    <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
+                    <label for="state">State</label>
+                </div>
 
-        <fieldset>
-            <h3>Address</h3>
+                <div class="input-wrapper">
+                    <input type="text" id="zip" name="zip" placeholder="ZIP Code" pattern="[0-9]{5}" required>
+                    <label for="zip">ZIP Code</label>
+                </div>
 
-            <div class="form-field-group">
-                <label class="visually-hidden" for="street">Street</label>
-                <input type="text" id="street" name="street" placeholder="Street" pattern="[A-Za-z0-9\s]+" required>
+            </fieldset>
+        </div>
 
-                <label class="visually-hidden" for="city">City</label>
-                <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z\s]+" required>
+        <div class="fieldset-group">
+            <fieldset>
+                <h3>Position</h3>
 
-                <label class="visually-hidden" for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="State" pattern="[A-Za-z]{2}" required>
-
-                <label class="visually-hidden" for="zip">ZIP Code</label>
-                <input type="text" id="zip" name="zip" placeholder="ZIP Code" pattern="[0-9]{5}" required>
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <h3>Position</h3>
-
-            <div class="form-field-group">
-                <label class="visually-hidden" for="position">Position Applied For</label>
-                <input type="text" id="position" name="employment" placeholder="Position Applying For"
-                    pattern="[A-Za-z\s]+" value="" required>
+                <div class="input-wrapper">
+                    <input type="text" id="position" name="employment" placeholder="Position Applying For"
+                        pattern="[A-Za-z\s]+" value="" required>
+                    <label for="position">Position Applied For</label>
+                </div>
 
                 <div class="form-field-buttons">
                     <label for="full-time">
@@ -110,10 +110,12 @@
                     </label>
                 </div>
 
-                <label for="date-for-work">Date Available for Work</label>
-                <input type="date" id="date-for-work" value="2023-12-06" required>
-            </div>
-        </fieldset>
+                <div class="input-wrapper">
+                    <input type="date" id="date-for-work" value="2023-12-05" required>
+                    <label for="date-for-work">Date Available for Work</label>
+                </div>
+            </fieldset>
+        </div>
 
         <!-- <input type="submit" value="Submit" class="submit-button"> -->
     </form>

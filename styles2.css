@@ -6,24 +6,18 @@
 @import url("button.css");
 @import url("input.css");
 
-/* :root,
 :root.light {
-    --bg-color: #fff;
-    --bg-color-contrast: #000000;
-    --text-color: #123;
-    --text-color-contrast: #fed;
+    /* --bg-color: #141618;
+    --bg-color-brighter: #191b1d;
+    --bg-color-accent: #ac5730;
+    --bg-color-contrast: #efefef;
+    --text-color: #f8e6e1;
+    --text-color-contrast: #212729; */
 }
 
-:root.dark {
-    --bg-color: #121212;
-    --bg-color-contrast: #efefef;
-    --text-color: #45ADFE;
-    --text-color-contrast: #212729;
-} */
-
 :root {
-    --bg-color: #121212;
-    --bg-color-brighter: #1f1f1f;
+    --bg-color: #141618;
+    --bg-color-brighter: #191b1d;
     --bg-color-accent: #ac5730;
     --bg-color-contrast: #efefef;
     --text-color: #f8e6e1;
@@ -49,6 +43,34 @@ iframe {
     --slide-time: 0.5s;
     --transform-bounds-left: -100%;
     --transform-bounds-right: 100%;
+}
+
+.nav-wrapper {
+    background-color: var(--bg-color-brighter);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    margin: auto;
+    width: 90%;
+    max-width: 120ch;
+}
+
+.nav-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
 
 .fade-in {
@@ -209,30 +231,24 @@ iframe {
 }
 
 .fieldset-group {
-    /* border: 1px solid var(--bg-color-accent); */
     background-color: var(--bg-color-brighter);
 
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
 
     /* margin: 1.25rem 0rem; */
     /* margin: 1rem auto;
     width: 90%; */
-}
 
-.form-field-group {
-    border: 1px solid var(--bg-color-accent);
+    padding: 0.5rem 0.5rem;
+    ;
 
-    display: flex;
-    flex-wrap: wrap;
-    /* gap: 0.5rem; */
+    margin: 1rem auto;
+    /* width: 30%; */
 
-    /* margin: 1.25rem 0rem; */
-}
-
-.form-field-group>* {
-    margin: 0.25rem 0rem;
+    /* debug */
+    /* border: 1px solid var(--bg-color-accent); */
 }
 
 .center-group {
