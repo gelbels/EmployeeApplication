@@ -150,4 +150,6 @@ textarea {
 
 .input-wrapper input[required]~label::after {
     content: "*";
+    color: red;
+
 }
